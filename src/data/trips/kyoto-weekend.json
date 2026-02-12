@@ -1,0 +1,185 @@
+{
+  "id": "kyoto-weekend",
+  "title": "Kyoto Weekend Escape",
+  "description": "A quick 2-day escape to Kyoto — bamboo groves, golden temples, matcha everything, and the most beautiful gardens in the world.",
+  "coverImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200&q=80",
+  "startDate": "2026-08-22",
+  "endDate": "2026-08-23",
+  "location": "Kyoto, Japan",
+  "tags": ["Japan", "Temples", "Nature", "Weekend"],
+  "travelers": ["Ryvn", "Carol"],
+  "themeColor": "#059669",
+  "days": [
+    {
+      "date": "2026-08-22",
+      "title": "Day 1 — Arashiyama & West Kyoto",
+      "activities": [
+        {
+          "id": "k1-1",
+          "time": "07:00",
+          "title": "Shinkansen Tokyo → Kyoto",
+          "description": "Nozomi bullet train from Tokyo Station. About 2h15m. Book reserved seats in advance.",
+          "location": "Tokyo Station → Kyoto Station",
+          "coordinates": { "lat": 34.9856, "lng": 135.7583 },
+          "category": "transport",
+          "cost": "¥13,320",
+          "duration": "2h15m"
+        },
+        {
+          "id": "k1-2",
+          "time": "09:30",
+          "title": "Arashiyama Bamboo Grove",
+          "description": "Walk through the iconic bamboo forest. Go early to avoid crowds — the light filtering through the bamboo is magical.",
+          "location": "Arashiyama Bamboo Grove",
+          "address": "Sagaogurayama Tabuchiyamacho, Ukyo Ward",
+          "coordinates": { "lat": 35.0170, "lng": 135.6713 },
+          "category": "sight",
+          "duration": "1h",
+          "tips": "Best visited before 10am for photos without crowds.",
+          "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&q=80"
+        },
+        {
+          "id": "k1-3",
+          "time": "11:00",
+          "title": "Tenryu-ji Temple",
+          "description": "UNESCO World Heritage site with one of the finest landscape gardens in Kyoto.",
+          "location": "Tenryu-ji Temple",
+          "address": "68 Sagatenryuji Susukinobabacho, Ukyo Ward",
+          "coordinates": { "lat": 35.0156, "lng": 135.6745 },
+          "category": "sight",
+          "cost": "¥500",
+          "duration": "45m",
+          "image": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80"
+        },
+        {
+          "id": "k1-4",
+          "time": "12:00",
+          "title": "Lunch at Shoraian",
+          "description": "Tofu restaurant on the river with mountain views. Traditional Kyoto cuisine in a serene setting.",
+          "location": "Shoraian",
+          "address": "Sagatenryuji Susukinobabacho, Ukyo Ward",
+          "coordinates": { "lat": 35.0128, "lng": 135.6738 },
+          "category": "food",
+          "cost": "¥3,000",
+          "duration": "1h"
+        },
+        {
+          "id": "k1-5",
+          "time": "14:00",
+          "title": "Kinkaku-ji (Golden Pavilion)",
+          "description": "The iconic gold-leaf covered temple reflected in a mirror pond. One of Japan's most photographed spots.",
+          "location": "Kinkaku-ji",
+          "address": "1 Kinkakujicho, Kita Ward",
+          "coordinates": { "lat": 35.0394, "lng": 135.7292 },
+          "category": "sight",
+          "cost": "¥500",
+          "duration": "1h",
+          "image": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800&q=80"
+        },
+        {
+          "id": "k1-6",
+          "time": "16:00",
+          "title": "Check in at Hoshinoya Kyoto",
+          "description": "A riverside ryokan accessible only by boat. Pure luxury and tranquility.",
+          "location": "Hoshinoya Kyoto",
+          "address": "Arashiyama Genrokuzancho, Nishikyo Ward",
+          "coordinates": { "lat": 35.0095, "lng": 135.6668 },
+          "category": "hotel",
+          "cost": "¥60,000/night"
+        },
+        {
+          "id": "k1-7",
+          "time": "18:30",
+          "title": "Kaiseki Dinner",
+          "description": "Multi-course traditional Japanese dinner at the ryokan. Seasonal ingredients, artistic presentation.",
+          "location": "Hoshinoya Kyoto",
+          "coordinates": { "lat": 35.0095, "lng": 135.6668 },
+          "category": "food",
+          "duration": "2h",
+          "tips": "This is included with the stay — some of the best food you'll ever have.",
+          "image": "https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=800&q=80"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "title": "Day 2 — East Kyoto & Fushimi Inari",
+      "activities": [
+        {
+          "id": "k2-1",
+          "time": "06:00",
+          "title": "Fushimi Inari Taisha (Sunrise)",
+          "description": "10,000 vermillion torii gates winding up the mountain. Going at sunrise means you'll have the trails almost to yourself.",
+          "location": "Fushimi Inari Taisha",
+          "address": "68 Fukakusa Yabunouchicho, Fushimi Ward",
+          "coordinates": { "lat": 34.9671, "lng": 135.7727 },
+          "category": "sight",
+          "duration": "2h",
+          "tips": "The full hike to the summit takes about 2 hours. The view from the top is worth it.",
+          "image": "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=800&q=80"
+        },
+        {
+          "id": "k2-2",
+          "time": "08:30",
+          "title": "Matcha Breakfast at Nakamura Tokichi",
+          "description": "Famous matcha house with the richest matcha parfait and warabi mochi you'll ever taste.",
+          "location": "Nakamura Tokichi Fushimi",
+          "address": "Fushimi Ward, Kyoto",
+          "coordinates": { "lat": 34.9680, "lng": 135.7740 },
+          "category": "food",
+          "cost": "¥1,500",
+          "duration": "45m",
+          "image": "https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?w=800&q=80"
+        },
+        {
+          "id": "k2-3",
+          "time": "10:00",
+          "title": "Kiyomizu-dera Temple",
+          "description": "Famous wooden temple built into the hillside with a stunning veranda overlooking the city.",
+          "location": "Kiyomizu-dera",
+          "address": "1-294 Kiyomizu, Higashiyama Ward",
+          "coordinates": { "lat": 34.9949, "lng": 135.7850 },
+          "category": "sight",
+          "cost": "¥400",
+          "duration": "1h30m",
+          "image": "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=800&q=80"
+        },
+        {
+          "id": "k2-4",
+          "time": "12:00",
+          "title": "Walk through Ninenzaka & Sannenzaka",
+          "description": "Charming stone-paved lanes lined with traditional wooden buildings, tea houses, and craft shops.",
+          "location": "Ninenzaka & Sannenzaka",
+          "address": "Higashiyama Ward, Kyoto",
+          "coordinates": { "lat": 34.9982, "lng": 135.7808 },
+          "category": "sight",
+          "duration": "1h"
+        },
+        {
+          "id": "k2-5",
+          "time": "13:30",
+          "title": "Nishiki Market Lunch",
+          "description": "\"Kyoto's Kitchen\" — a 400-year-old narrow market with 100+ stalls. Try dashimaki tamago, pickles, and yuba.",
+          "location": "Nishiki Market",
+          "address": "Nishiki Koji Dori, Nakagyo Ward",
+          "coordinates": { "lat": 35.0049, "lng": 135.7645 },
+          "category": "food",
+          "cost": "¥2,000",
+          "duration": "1h30m",
+          "image": "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80"
+        },
+        {
+          "id": "k2-6",
+          "time": "15:30",
+          "title": "Return to Tokyo",
+          "description": "Shinkansen back to Tokyo. Rest up — it's been an amazing weekend.",
+          "location": "Kyoto Station → Tokyo Station",
+          "coordinates": { "lat": 34.9856, "lng": 135.7583 },
+          "category": "transport",
+          "cost": "¥13,320",
+          "duration": "2h15m"
+        }
+      ]
+    }
+  ]
+}

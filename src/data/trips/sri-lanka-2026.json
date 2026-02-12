@@ -1,0 +1,490 @@
+{
+  "id": "sri-lanka-2026",
+  "title": "Sri Lanka February 2026",
+  "description": "An 8-day journey through Sri Lanka — ancient rock fortresses, misty tea country, the famous hill-country train, and colonial Galle Fort by the sea.",
+  "coverImage": "https://images.unsplash.com/photo-1586613835341-93e0eba81690?w=1200&q=80",
+  "startDate": "2026-02-14",
+  "endDate": "2026-02-21",
+  "location": "Sri Lanka",
+  "tags": ["Sri Lanka", "Culture", "Nature", "Train", "Beach"],
+  "travelers": ["Ryvn", "Julian"],
+  "themeColor": "#059669",
+  "days": [
+    {
+      "date": "2026-02-14",
+      "title": "Day 1 — Arrival in Colombo",
+      "activities": [
+        {
+          "id": "sl1-1",
+          "time": "08:15",
+          "title": "Flight JD487 — Beijing (PKX) to Colombo",
+          "description": "Julian's outbound flight from Beijing Daxing. Ryvn arrives on a separate flight (TBD).",
+          "location": "Beijing Daxing International Airport (PKX)",
+          "coordinates": { "lat": 39.5098, "lng": 116.4105 },
+          "category": "transport",
+          "tips": "Bring a good book — it's a long flight."
+        },
+        {
+          "id": "sl1-2",
+          "time": "14:20",
+          "title": "Land at Colombo (CMB)",
+          "description": "Arrive at Bandaranaike International Airport. Pick up local SIM card and arrange transfer to hotel.",
+          "location": "Bandaranaike International Airport (CMB)",
+          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "category": "transport",
+          "tips": "Get a Dialog or Mobitel SIM at the airport arrivals hall — fast data for cheap."
+        },
+        {
+          "id": "sl1-3",
+          "time": "15:00",
+          "title": "Transfer to Negombo",
+          "description": "Short 15-minute drive from the airport to the hotel in Negombo.",
+          "location": "Negombo",
+          "coordinates": { "lat": 7.2108, "lng": 79.8358 },
+          "category": "transport",
+          "duration": "15m"
+        },
+        {
+          "id": "sl1-4",
+          "time": "16:00",
+          "title": "Check in at Jetwing Blue",
+          "description": "Beachfront hotel right on Negombo Beach. Relax after the long flight.",
+          "location": "Jetwing Blue",
+          "address": "Porutota Road, Ethukala, Negombo 11500",
+          "coordinates": { "lat": 7.24217, "lng": 79.84193 },
+          "category": "hotel",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/x7FsPzC6BWqdu3zo8" }],
+          "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80"
+        },
+        {
+          "id": "sl1-5",
+          "time": "18:30",
+          "title": "Dinner & Beach Sunset",
+          "description": "Enjoy fresh seafood at the hotel or walk to a nearby restaurant along Negombo Beach. Catch the sunset over the Indian Ocean.",
+          "location": "Negombo Beach",
+          "coordinates": { "lat": 7.2422, "lng": 79.8385 },
+          "category": "food",
+          "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-15",
+      "title": "Day 2 — Sigiriya Rock Fortress",
+      "activities": [
+        {
+          "id": "sl2-1",
+          "time": "07:00",
+          "title": "Drive to Sigiriya",
+          "description": "Scenic 4-hour drive through the Sri Lankan countryside from Negombo to the Cultural Triangle.",
+          "location": "Negombo → Sigiriya",
+          "coordinates": { "lat": 7.9569, "lng": 80.7597 },
+          "category": "transport",
+          "duration": "4h"
+        },
+        {
+          "id": "sl2-2",
+          "time": "11:00",
+          "title": "Sigiriya Rock Fortress",
+          "description": "Climb the ancient rock fortress — a UNESCO World Heritage Site built in the 5th century. 1,200 steps to the top with stunning views of the surrounding jungle and plains.",
+          "location": "Sigiriya Rock Fortress",
+          "address": "Sigiriya, Matale District",
+          "coordinates": { "lat": 7.9569, "lng": 80.7597 },
+          "category": "sight",
+          "duration": "2h30m",
+          "cost": "$30 USD",
+          "tips": "Go early to avoid the midday heat. Bring water. The frescoes halfway up are incredible.",
+          "image": "https://images.unsplash.com/photo-1586613835341-93e0eba81690?w=800&q=80",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/dLqJDLJKVwvkhYJe6" }]
+        },
+        {
+          "id": "sl2-3",
+          "time": "13:30",
+          "title": "Lunch",
+          "description": "Lunch near Sigiriya. Try a traditional Sri Lankan rice and curry spread.",
+          "location": "Sigiriya area",
+          "coordinates": { "lat": 7.9510, "lng": 80.7550 },
+          "category": "food",
+          "duration": "1h"
+        },
+        {
+          "id": "sl2-4",
+          "time": "16:00",
+          "title": "Check in at Ceylon Breeze Sigiriya",
+          "description": "Rest and enjoy the pool after the Sigiriya climb.",
+          "location": "Ceylon Breeze Hotel Sigiriya",
+          "address": "Thithiya, Kolawatta, Digampataha, Sigiriya",
+          "coordinates": { "lat": 7.9283, "lng": 80.7267 },
+          "category": "hotel",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/UgMkPN8Wr7kMSLDv7" }]
+        }
+      ]
+    },
+    {
+      "date": "2026-02-16",
+      "title": "Day 3 — Kandy: Temples & Tea",
+      "activities": [
+        {
+          "id": "sl3-1",
+          "time": "08:00",
+          "title": "Drive to Kandy",
+          "description": "3-hour drive south from Sigiriya through the hill country to Kandy, Sri Lanka's cultural capital.",
+          "location": "Sigiriya → Kandy",
+          "coordinates": { "lat": 7.2906, "lng": 80.6337 },
+          "category": "transport",
+          "duration": "3h"
+        },
+        {
+          "id": "sl3-2",
+          "time": "11:00",
+          "title": "Temple of the Tooth (Sri Dalada Maligawa)",
+          "description": "Sacred Buddhist temple housing the relic of the tooth of Buddha. One of the most important pilgrimage sites in the Buddhist world.",
+          "location": "Temple of the Tooth",
+          "address": "Sri Dalada Veediya, Kandy",
+          "coordinates": { "lat": 7.2936, "lng": 80.6414 },
+          "category": "sight",
+          "duration": "1h30m",
+          "tips": "Dress modestly — cover shoulders and knees. Remove shoes before entering.",
+          "image": "https://images.unsplash.com/photo-1625735764721-24dfe3e8b916?w=800&q=80",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/qK8vy9MTmVzLBPDp6" }]
+        },
+        {
+          "id": "sl3-3",
+          "time": "12:30",
+          "title": "Lunch by Kandy Lake",
+          "description": "Enjoy lunch with views of the scenic Kandy Lake, right in the heart of the city.",
+          "location": "Kandy Lake",
+          "coordinates": { "lat": 7.2906, "lng": 80.6394 },
+          "category": "food",
+          "duration": "1h",
+          "image": "https://images.unsplash.com/photo-1625736042834-0cd8d7e57d4e?w=800&q=80"
+        },
+        {
+          "id": "sl3-4",
+          "time": "14:00",
+          "title": "Udawattakele Forest Reserve",
+          "description": "A serene forest sanctuary above the Temple of the Tooth. Great for a peaceful walk among ancient trees, birds, and monkeys.",
+          "location": "Udawattakele Forest Reserve",
+          "coordinates": { "lat": 7.2981, "lng": 80.6396 },
+          "category": "sight",
+          "duration": "1h30m",
+          "image": "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80"
+        },
+        {
+          "id": "sl3-5",
+          "time": "16:00",
+          "title": "Ceylon Tea Museum",
+          "description": "Learn about Sri Lanka's famous tea industry in this museum housed in a former tea factory. Includes tea tasting.",
+          "location": "Ceylon Tea Museum",
+          "address": "Hantana Road, Kandy",
+          "coordinates": { "lat": 7.2574, "lng": 80.6338 },
+          "category": "activity",
+          "duration": "1h"
+        },
+        {
+          "id": "sl3-6",
+          "time": "17:30",
+          "title": "Check in at Cinnamon Citadel Kandy",
+          "description": "Riverside hotel with beautiful views of the Mahaweli River.",
+          "location": "Cinnamon Citadel Kandy",
+          "address": "124 Srimath Kuda Ratwatte Mawatha, Kandy 20000",
+          "coordinates": { "lat": 7.3058, "lng": 80.6237 },
+          "category": "hotel",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/AXMSy39NvoDgoTXt5" }]
+        }
+      ]
+    },
+    {
+      "date": "2026-02-17",
+      "title": "Day 4 — The Famous Train to Ella",
+      "activities": [
+        {
+          "id": "sl4-1",
+          "time": "07:00",
+          "title": "Drive to Ambewala Station",
+          "description": "2-hour drive from Kandy to Ambewala railway station to catch the famous hill-country train.",
+          "location": "Kandy → Ambewala",
+          "coordinates": { "lat": 6.8773, "lng": 80.8143 },
+          "category": "transport",
+          "duration": "2h"
+        },
+        {
+          "id": "sl4-2",
+          "time": "09:50",
+          "title": "Train: Ambewala → Ella",
+          "description": "One of the most beautiful train rides in the world. The train winds through lush green tea plantations, crosses the iconic Nine Arches Bridge, and passes through misty mountain tunnels.",
+          "location": "Sri Lanka Railways — Hill Country Line",
+          "coordinates": { "lat": 6.8758, "lng": 81.0471 },
+          "category": "transport",
+          "duration": "2h30m",
+          "tips": "Sit on the right side for the best views. Hang out by the open doors for the full experience (carefully!). Book 2nd class for open windows.",
+          "image": "https://images.unsplash.com/photo-1588828195929-1c5d8e5e9b5a?w=800&q=80"
+        },
+        {
+          "id": "sl4-3",
+          "time": "12:30",
+          "title": "Arrive in Ella",
+          "description": "Welcome to Ella — a small, laid-back mountain town surrounded by tea plantations and waterfalls.",
+          "location": "Ella Railway Station",
+          "coordinates": { "lat": 6.8758, "lng": 81.0471 },
+          "category": "transport",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/YQUfWYKHgGqPRbQc9" }]
+        },
+        {
+          "id": "sl4-4",
+          "time": "13:00",
+          "title": "Check in at La Casa Bella",
+          "description": "Settle in for a 2-night stay in Ella.",
+          "location": "La Casa Bella, Ella",
+          "address": "Ella - Passara Road, Ella 90090",
+          "coordinates": { "lat": 6.87195, "lng": 81.05238 },
+          "category": "hotel",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/TexxquvDWyZaRvPY9" }],
+          "tips": "Free cancellation until Feb 15."
+        },
+        {
+          "id": "sl4-5",
+          "time": "15:00",
+          "title": "Explore Ella Town",
+          "description": "Walk around Ella's charming main street. Grab a coffee, browse the shops, and enjoy the mountain views.",
+          "location": "Ella Town",
+          "coordinates": { "lat": 6.8667, "lng": 81.0466 },
+          "category": "activity",
+          "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-18",
+      "title": "Day 5 — Ella: Tea Estates & Views",
+      "activities": [
+        {
+          "id": "sl5-1",
+          "time": "08:00",
+          "title": "Tea Estate Visit",
+          "description": "Visit a working tea estate and factory. See how Ceylon tea is picked, processed, and graded. Includes a tasting session.",
+          "location": "Ella Tea Estate",
+          "coordinates": { "lat": 6.8600, "lng": 81.0350 },
+          "category": "activity",
+          "duration": "2h",
+          "image": "https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?w=800&q=80"
+        },
+        {
+          "id": "sl5-2",
+          "time": "10:30",
+          "title": "Nine Arches Bridge",
+          "description": "Walk to the iconic Nine Arches Bridge — a colonial-era stone viaduct set among jungle and tea fields. Watch the train cross if your timing is right.",
+          "location": "Nine Arches Bridge",
+          "address": "Gotuwala, Ella",
+          "coordinates": { "lat": 6.8767, "lng": 81.0611 },
+          "category": "sight",
+          "duration": "1h",
+          "tips": "Trains cross around 9:15am, 11:00am, and 3:30pm — check the schedule.",
+          "image": "https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?w=800&q=80",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/UJnPaRWPuVMeVwLZ6" }]
+        },
+        {
+          "id": "sl5-3",
+          "time": "12:00",
+          "title": "Lunch in Ella",
+          "description": "Plenty of great cafes and restaurants in town. Try a kottu roti or a Sri Lankan curry.",
+          "location": "Ella Town",
+          "coordinates": { "lat": 6.8667, "lng": 81.0466 },
+          "category": "food",
+          "duration": "1h"
+        },
+        {
+          "id": "sl5-4",
+          "time": "14:00",
+          "title": "Little Adam's Peak",
+          "description": "Easy 45-minute hike to panoramic views of Ella Gap and the surrounding tea country. One of the best viewpoints in the area.",
+          "location": "Little Adam's Peak",
+          "coordinates": { "lat": 6.8586, "lng": 81.0547 },
+          "category": "sight",
+          "duration": "2h",
+          "image": "https://images.unsplash.com/photo-1546587348-d12660c30c50?w=800&q=80"
+        },
+        {
+          "id": "sl5-5",
+          "time": "17:00",
+          "title": "Ravana Falls",
+          "description": "One of Sri Lanka's widest waterfalls, just a short tuk-tuk ride from Ella center.",
+          "location": "Ravana Falls",
+          "coordinates": { "lat": 6.8400, "lng": 81.0500 },
+          "category": "sight",
+          "duration": "30m",
+          "image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e13?w=800&q=80"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-19",
+      "title": "Day 6 — Ella to Galle",
+      "activities": [
+        {
+          "id": "sl6-1",
+          "time": "07:30",
+          "title": "Transfer to Galle",
+          "description": "Long but scenic 5-hour drive south from the hill country to the coast. The landscape changes dramatically from mountains to tropical coast.",
+          "location": "Ella → Galle",
+          "coordinates": { "lat": 6.0271, "lng": 80.2171 },
+          "category": "transport",
+          "duration": "5h"
+        },
+        {
+          "id": "sl6-2",
+          "time": "13:00",
+          "title": "Arrive & Check in at The Fort House",
+          "description": "Boutique hotel inside the historic Galle Fort walls.",
+          "location": "The Fort House, Galle",
+          "address": "72 Church Street, Galle 80000",
+          "coordinates": { "lat": 6.02697, "lng": 80.21712 },
+          "category": "hotel",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/ETxjLtFJxMSpJw5RA" }],
+          "tips": "Free cancellation until Feb 11."
+        },
+        {
+          "id": "sl6-3",
+          "time": "14:30",
+          "title": "Galle Fort Rampart Walk",
+          "description": "Walk along the 400-year-old Dutch colonial fort walls. Beautiful views of the ocean on both sides, especially at sunset.",
+          "location": "Galle Fort Ramparts",
+          "coordinates": { "lat": 6.0286, "lng": 80.2168 },
+          "category": "sight",
+          "duration": "1h",
+          "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/bLHkPZX7EkVJjMBN9" }]
+        },
+        {
+          "id": "sl6-4",
+          "time": "16:00",
+          "title": "Dutch Reformed Church",
+          "description": "One of the oldest Protestant churches in Sri Lanka, dating back to 1755. Beautiful colonial architecture.",
+          "location": "Dutch Reformed Church",
+          "address": "Church Street, Galle Fort",
+          "coordinates": { "lat": 6.0271, "lng": 80.2171 },
+          "category": "sight",
+          "duration": "30m",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/jUvLQ9gVZvHNe2xQ6" }]
+        },
+        {
+          "id": "sl6-5",
+          "time": "17:00",
+          "title": "Explore Galle Fort Streets",
+          "description": "Wander through the charming streets inside the fort. Art galleries, boutique shops, cafes, and colonial architecture everywhere.",
+          "location": "Galle Fort",
+          "coordinates": { "lat": 6.0286, "lng": 80.2168 },
+          "category": "activity",
+          "duration": "1h30m",
+          "image": "https://images.unsplash.com/photo-1625736042834-0cd8d7e57d4e?w=800&q=80",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/bLHkPZX7EkVJjMBN9" }]
+        },
+        {
+          "id": "sl6-6",
+          "time": "18:30",
+          "title": "Sunset & Dinner at the Fort",
+          "description": "Watch the sunset from the ramparts, then find a restaurant inside the fort for dinner.",
+          "location": "Galle Fort",
+          "coordinates": { "lat": 6.0245, "lng": 80.2194 },
+          "category": "food",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/N5pHnb5QJ3c7jNJe7" }]
+        }
+      ]
+    },
+    {
+      "date": "2026-02-20",
+      "title": "Day 7 — Galle Beach Day",
+      "activities": [
+        {
+          "id": "sl7-1",
+          "time": "08:00",
+          "title": "Breakfast at the Fort",
+          "description": "Lazy morning breakfast at the hotel or a nearby cafe inside Galle Fort.",
+          "location": "Galle Fort",
+          "coordinates": { "lat": 6.0270, "lng": 80.2171 },
+          "category": "food"
+        },
+        {
+          "id": "sl7-2",
+          "time": "09:30",
+          "title": "Beach Day — Unawatuna or Jungle Beach",
+          "description": "Head to nearby Unawatuna Beach (10 min drive) or the hidden Jungle Beach for a full day of sun, swimming, and relaxation.",
+          "location": "Unawatuna Beach",
+          "coordinates": { "lat": 6.0097, "lng": 80.2484 },
+          "category": "activity",
+          "duration": "Full day",
+          "tips": "Jungle Beach is smaller but more secluded — great for snorkeling.",
+          "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/cMqPFqEXvHvZKuYB8" }]
+        },
+        {
+          "id": "sl7-3",
+          "time": "13:00",
+          "title": "Beachside Lunch",
+          "description": "Fresh seafood and cold drinks with your feet in the sand.",
+          "location": "Unawatuna Beach",
+          "coordinates": { "lat": 6.0097, "lng": 80.2484 },
+          "category": "food",
+          "duration": "1h"
+        },
+        {
+          "id": "sl7-4",
+          "time": "18:00",
+          "title": "Last Evening in Galle",
+          "description": "Final sunset from the fort ramparts. Soak it all in.",
+          "location": "Galle Fort",
+          "coordinates": { "lat": 6.0245, "lng": 80.2194 },
+          "category": "activity",
+          "image": "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=80",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/N5pHnb5QJ3c7jNJe7" }]
+        }
+      ]
+    },
+    {
+      "date": "2026-02-21",
+      "title": "Day 8 — Departure",
+      "activities": [
+        {
+          "id": "sl8-1",
+          "time": "09:00",
+          "title": "Transfer to Colombo Airport",
+          "description": "3-hour drive north along the coastal expressway from Galle to CMB airport.",
+          "location": "Galle → CMB Airport",
+          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "category": "transport",
+          "duration": "3h"
+        },
+        {
+          "id": "sl8-2",
+          "time": "12:00",
+          "title": "Arrive at Airport",
+          "description": "Last-minute shopping at the duty-free. Pick up Ceylon tea, spices, and gems as souvenirs.",
+          "location": "Bandaranaike International Airport (CMB)",
+          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "category": "transport",
+          "tips": "Grab a last Sri Lankan meal at the airport before departure.",
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/TaK7N6NkXcnJxJ5D6" }]
+        },
+        {
+          "id": "sl8-3",
+          "time": "16:20",
+          "title": "Return Flight — Colombo to Beijing",
+          "description": "Flight departs CMB at 16:20. Lands at Beijing Daxing (PKX) at 01:55+1 the next day.",
+          "location": "Bandaranaike International Airport (CMB)",
+          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "category": "transport"
+        },
+        {
+          "id": "sl8-4",
+          "time": "01:55",
+          "title": "Land at Beijing (PKX) — Next Day",
+          "description": "Arrive back in Beijing early morning on Feb 22.",
+          "location": "Beijing Daxing International Airport (PKX)",
+          "coordinates": { "lat": 39.5098, "lng": 116.4105 },
+          "category": "transport",
+          "tips": "Book an airport hotel if you need rest before heading home."
+        }
+      ]
+    }
+  ]
+}
