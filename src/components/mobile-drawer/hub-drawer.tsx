@@ -118,6 +118,7 @@ export function HubDrawer({
     >
       <DrawerPrimitive.Portal>
         <DrawerPrimitive.Content className="drawer-glass fixed inset-x-0 bottom-0 z-50 flex h-full max-h-[92vh] flex-col rounded-t-2xl border-t border-border/30 outline-none lg:!hidden">
+          <DrawerPrimitive.Title className="sr-only">Trip Overview</DrawerPrimitive.Title>
           {/* Drag handle */}
           <div className="flex justify-center pt-3 pb-3 cursor-grab active:cursor-grabbing">
             <div className="h-1 w-10 rounded-full bg-ink-muted/30" />
