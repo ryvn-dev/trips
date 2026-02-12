@@ -23,11 +23,11 @@ export function TripCard({
 }: {
   trip: TripSummary;
   index: number;
-  variant?: "feature" | "standard" | "compact";
+  variant?: "feature" | "standard";
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: 0.6,
@@ -37,35 +37,21 @@ export function TripCard({
     >
       <Link href={`/trips/${trip.id}`} className="group block">
         {variant === "feature" ? (
-          <FeatureCard trip={trip} index={index} />
-        ) : variant === "compact" ? (
-          <CompactCard trip={trip} />
+          <FeatureCard trip={trip} />
         ) : (
-          <StandardCard trip={trip} index={index} />
+          <StandardCard trip={trip} />
         )}
       </Link>
     </motion.div>
   );
 }
 
-function FeatureCard({
-  trip,
-  index,
-}: {
-  trip: TripSummary;
-  index: number;
-}) {
+function FeatureCard({ trip }: { trip: TripSummary }) {
   return (
-    <article className="relative overflow-hidden">
-      {/* Ghost number */}
-      <span className="absolute -top-6 -left-3 text-[8rem] font-mono font-bold leading-none text-ink/[0.04] select-none pointer-events-none z-10">
-        {String(index + 1).padStart(2, "0")}
-      </span>
-
-      {/* Horizontal layout on desktop */}
-      <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+    <article className="overflow-hidden">
+      <div className="flex flex-col sm:flex-row sm:gap-8">
         {/* Image */}
-        <div className="relative sm:w-[55%] aspect-[4/5] sm:aspect-[3/4] overflow-hidden photo-filter">
+        <div className="relative sm:w-[55%] aspect-[4/3] sm:aspect-[3/4] overflow-hidden photo-filter">
           <Image
             src={trip.coverImage}
             alt={trip.title}
@@ -77,7 +63,7 @@ function FeatureCard({
         </div>
 
         {/* Content */}
-        <div className="flex-1 flex flex-col justify-center py-2 sm:py-8">
+        <div className="flex-1 flex flex-col justify-center pt-5 sm:pt-0 sm:py-8">
           {/* Tags */}
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-ink-muted">
             {trip.tags.map((tag, i) => (
@@ -88,17 +74,17 @@ function FeatureCard({
             ))}
           </div>
 
-          <h3 className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight group-hover:text-ink transition-colors leading-tight">
+          <h3 className="mt-3 text-2xl sm:text-2xl lg:text-3xl font-bold tracking-tight group-hover:text-ink transition-colors leading-tight">
             {trip.title}
           </h3>
           <div className="mt-3 h-px w-12 bg-vermillion/50" />
 
-          <p className="mt-4 text-sm leading-relaxed text-ink-light line-clamp-3">
+          <p className="mt-3 sm:mt-4 text-sm leading-relaxed text-ink-light line-clamp-3">
             {trip.description}
           </p>
 
           {/* Meta */}
-          <div className="mt-4 flex items-center gap-4 text-xs text-ink-muted">
+          <div className="mt-3 sm:mt-4 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-ink-muted">
             <span className="flex items-center gap-1 font-mono tracking-wider">
               <CalendarDays className="h-3.5 w-3.5" />
               {formatDateRange(trip.startDate, trip.endDate)}
@@ -110,12 +96,12 @@ function FeatureCard({
           </div>
 
           {/* Day count stamp */}
-          <div className="mt-6 flex h-14 w-14 items-center justify-center rounded-full border-2 border-vermillion/30 rotate-[-8deg]">
+          <div className="mt-4 sm:mt-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border-2 border-vermillion/30 rotate-[-8deg]">
             <div className="text-center leading-none">
-              <span className="block text-lg font-bold text-vermillion">
+              <span className="block text-base sm:text-lg font-bold text-vermillion">
                 {trip.totalDays}
               </span>
-              <span className="block text-[7px] uppercase tracking-wider text-vermillion/70">
+              <span className="block text-[6px] sm:text-[7px] uppercase tracking-wider text-vermillion/70">
                 days
               </span>
             </div>
@@ -126,20 +112,9 @@ function FeatureCard({
   );
 }
 
-function StandardCard({
-  trip,
-  index,
-}: {
-  trip: TripSummary;
-  index: number;
-}) {
+function StandardCard({ trip }: { trip: TripSummary }) {
   return (
-    <article className="relative overflow-hidden transition-all duration-300 group-hover:-translate-y-0.5">
-      {/* Ghost number */}
-      <span className="absolute -top-2 -left-1 text-[5rem] font-mono font-bold leading-none text-ink/[0.04] select-none pointer-events-none z-10">
-        {String(index + 1).padStart(2, "0")}
-      </span>
-
+    <article className="overflow-hidden transition-all duration-300 group-hover:-translate-y-0.5">
       {/* Image — portrait aspect */}
       <div className="relative aspect-[3/4] overflow-hidden photo-filter">
         <Image
@@ -152,7 +127,7 @@ function StandardCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
         {/* Day stamp */}
-        <div className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center rounded-full border-2 border-white/40 rotate-[-8deg]">
+        <div className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center rounded-full border-2 border-white/30 rotate-[-8deg]">
           <div className="text-center leading-none">
             <span className="block text-base font-bold text-white">
               {trip.totalDays}
@@ -180,30 +155,6 @@ function StandardCard({
             {formatDateRange(trip.startDate, trip.endDate)}
           </p>
         </div>
-      </div>
-    </article>
-  );
-}
-
-function CompactCard({ trip }: { trip: TripSummary }) {
-  return (
-    <article className="flex gap-4 items-center py-3 transition-all duration-200 group-hover:translate-x-1">
-      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-sm photo-filter">
-        <Image
-          src={trip.coverImage}
-          alt={trip.title}
-          fill
-          className="object-cover"
-          sizes="64px"
-        />
-      </div>
-      <div className="flex-1 min-w-0">
-        <h3 className="text-sm font-semibold tracking-tight truncate group-hover:text-ink transition-colors">
-          {trip.title}
-        </h3>
-        <p className="text-[10px] uppercase tracking-wider text-ink-muted mt-0.5">
-          {trip.location}
-        </p>
       </div>
     </article>
   );
