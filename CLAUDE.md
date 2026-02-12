@@ -62,6 +62,10 @@ Activity categories use standard Tailwind colors (orange, blue, emerald, etc.) d
 
 - `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` — Google Maps API key. Map gracefully falls back to "unavailable" message without it.
 
+## Git
+
+- **Never** add `Co-Authored-By` trailers to commit messages
+
 ## Conventions
 
 - All UI text is **English** (not Chinese/Japanese despite the Japanese aesthetic)
