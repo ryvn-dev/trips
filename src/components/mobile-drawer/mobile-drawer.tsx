@@ -81,11 +81,11 @@ export function MobileDrawer({
     setActiveSnap(HALF_SNAP);
   }, []);
 
-  // Scroll-to-map sync
+  // Scroll-to-map sync disabled on mobile — only tap selects an activity
   useScrollToMapSync({
     containerRef: scrollContainerRef,
     onActivityVisible: handleActivityVisible,
-    enabled: scrollSyncEnabled && !isCollapsed,
+    enabled: false,
   });
 
   return (
