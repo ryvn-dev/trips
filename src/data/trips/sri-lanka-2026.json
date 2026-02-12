@@ -53,8 +53,7 @@
           "address": "Porutota Road, Ethukala, Negombo 11500",
           "coordinates": { "lat": 7.24217, "lng": 79.84193 },
           "category": "hotel",
-          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/x7FsPzC6BWqdu3zo8" }],
-          "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80"
+          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/x7FsPzC6BWqdu3zo8" }]
         },
         {
           "id": "sl1-5",
@@ -63,8 +62,7 @@
           "description": "Enjoy fresh seafood at the hotel or walk to a nearby restaurant along Negombo Beach. Catch the sunset over the Indian Ocean.",
           "location": "Negombo Beach",
           "coordinates": { "lat": 7.2422, "lng": 79.8385 },
-          "category": "food",
-          "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+          "category": "food"
         }
       ]
     },
@@ -94,7 +92,6 @@
           "duration": "2h30m",
           "cost": "$30 USD",
           "tips": "Go early to avoid the midday heat. Bring water. The frescoes halfway up are incredible.",
-          "image": "https://images.unsplash.com/photo-1586613835341-93e0eba81690?w=800&q=80",
           "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/dLqJDLJKVwvkhYJe6" }]
         },
         {
@@ -145,7 +142,6 @@
           "category": "sight",
           "duration": "1h30m",
           "tips": "Dress modestly — cover shoulders and knees. Remove shoes before entering.",
-          "image": "https://images.unsplash.com/photo-1625735764721-24dfe3e8b916?w=800&q=80",
           "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/qK8vy9MTmVzLBPDp6" }]
         },
         {
@@ -156,8 +152,7 @@
           "location": "Kandy Lake",
           "coordinates": { "lat": 7.2906, "lng": 80.6394 },
           "category": "food",
-          "duration": "1h",
-          "image": "https://images.unsplash.com/photo-1625736042834-0cd8d7e57d4e?w=800&q=80"
+          "duration": "1h"
         },
         {
           "id": "sl3-4",
@@ -167,8 +162,7 @@
           "location": "Udawattakele Forest Reserve",
           "coordinates": { "lat": 7.2981, "lng": 80.6396 },
           "category": "sight",
-          "duration": "1h30m",
-          "image": "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80"
+          "duration": "1h30m"
         },
         {
           "id": "sl3-5",
@@ -217,8 +211,7 @@
           "coordinates": { "lat": 6.8758, "lng": 81.0471 },
           "category": "transport",
           "duration": "2h30m",
-          "tips": "Sit on the right side for the best views. Hang out by the open doors for the full experience (carefully!). Book 2nd class for open windows.",
-          "image": "https://images.unsplash.com/photo-1588828195929-1c5d8e5e9b5a?w=800&q=80"
+          "tips": "Sit on the right side for the best views. Hang out by the open doors for the full experience (carefully!). Book 2nd class for open windows."
         },
         {
           "id": "sl4-3",
@@ -249,8 +242,7 @@
           "description": "Walk around Ella's charming main street. Grab a coffee, browse the shops, and enjoy the mountain views.",
           "location": "Ella Town",
           "coordinates": { "lat": 6.8667, "lng": 81.0466 },
-          "category": "activity",
-          "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80"
+          "category": "activity"
         }
       ]
     },
@@ -266,8 +258,7 @@
           "location": "Ella Tea Estate",
           "coordinates": { "lat": 6.8600, "lng": 81.0350 },
           "category": "activity",
-          "duration": "2h",
-          "image": "https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?w=800&q=80"
+          "duration": "2h"
         },
         {
           "id": "sl5-2",
@@ -280,7 +271,6 @@
           "category": "sight",
           "duration": "1h",
           "tips": "Trains cross around 9:15am, 11:00am, and 3:30pm — check the schedule.",
-          "image": "https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?w=800&q=80",
           "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/UJnPaRWPuVMeVwLZ6" }]
         },
         {
@@ -301,8 +291,7 @@
           "location": "Little Adam's Peak",
           "coordinates": { "lat": 6.8586, "lng": 81.0547 },
           "category": "sight",
-          "duration": "2h",
-          "image": "https://images.unsplash.com/photo-1546587348-d12660c30c50?w=800&q=80"
+          "duration": "2h"
         },
         {
           "id": "sl5-5",
@@ -312,8 +301,7 @@
           "location": "Ravana Falls",
           "coordinates": { "lat": 6.8400, "lng": 81.0500 },
           "category": "sight",
-          "duration": "30m",
-          "image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e13?w=800&q=80"
+          "duration": "30m"
         }
       ]
     },
@@ -352,7 +340,6 @@
           "coordinates": { "lat": 6.0286, "lng": 80.2168 },
           "category": "sight",
           "duration": "1h",
-          "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
           "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/bLHkPZX7EkVJjMBN9" }]
         },
         {
@@ -376,7 +363,6 @@
           "coordinates": { "lat": 6.0286, "lng": 80.2168 },
           "category": "activity",
           "duration": "1h30m",
-          "image": "https://images.unsplash.com/photo-1625736042834-0cd8d7e57d4e?w=800&q=80",
           "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/bLHkPZX7EkVJjMBN9" }]
         },
         {
@@ -414,7 +400,6 @@
           "category": "activity",
           "duration": "Full day",
           "tips": "Jungle Beach is smaller but more secluded — great for snorkeling.",
-          "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
           "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/cMqPFqEXvHvZKuYB8" }]
         },
         {
@@ -435,7 +420,6 @@
           "location": "Galle Fort",
           "coordinates": { "lat": 6.0245, "lng": 80.2194 },
           "category": "activity",
-          "image": "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=80",
           "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/N5pHnb5QJ3c7jNJe7" }]
         }
       ]
