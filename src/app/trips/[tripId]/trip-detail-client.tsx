@@ -45,7 +45,13 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
     setActiveActivityId(id);
   }, []);
 
+  const handleNavigate = useCallback((view: MobileView) => {
+    setActiveActivityId(null);
+    setMobileView(view);
+  }, []);
+
   const handleBackToHub = useCallback(() => {
+    setActiveActivityId(null);
     setMobileView("hub");
   }, []);
 
@@ -63,7 +69,7 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
               <TripHero trip={trip} />
               <HubDrawer
                 trip={trip}
-                onNavigate={setMobileView}
+                onNavigate={handleNavigate}
               />
             </motion.div>
           )}

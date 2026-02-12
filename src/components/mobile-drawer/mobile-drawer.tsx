@@ -150,6 +150,7 @@ export function MobileDrawer({
               {/* Scrollable activity list */}
               <div
                 ref={scrollContainerRef}
+                data-vaul-no-drag
                 className="flex-1 overflow-y-auto overscroll-contain pb-8"
               >
                 <DrawerActivityList

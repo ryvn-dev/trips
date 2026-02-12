@@ -58,7 +58,7 @@ export function GuideDrawer({
           </div>
 
           {/* Scrollable sections */}
-          <div className="flex-1 overflow-y-auto overscroll-contain pb-8">
+          <div data-vaul-no-drag className="flex-1 overflow-y-auto overscroll-contain pb-8">
             <div className="space-y-6 px-4">
               {guide.sections.map((section) => (
                 <div key={section.title}>

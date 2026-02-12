@@ -132,7 +132,7 @@ export function HubDrawer({
           <div className="h-px bg-border/40" />
 
           {/* Scrollable content */}
-          <div className="flex-1 overflow-y-auto overscroll-contain">
+          <div data-vaul-no-drag className="flex-1 overflow-y-auto overscroll-contain">
             {/* Navigation items */}
             <div className="divide-y divide-border/40">
               {navItems.map((item) => {
