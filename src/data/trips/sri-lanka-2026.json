@@ -2,46 +2,74 @@
   "id": "sri-lanka-2026",
   "title": "Sri Lanka February 2026",
   "description": "An 8-day journey through Sri Lanka — ancient rock fortresses, misty tea country, the famous hill-country train, and colonial Galle Fort by the sea.",
-  "coverImage": "https://images.unsplash.com/photo-1586613835341-93e0eba81690?w=1200&q=80",
+  "coverImage": "https://images.unsplash.com/photo-1704797390901-e1d20bd46647?w=1200&q=80",
   "startDate": "2026-02-14",
-  "endDate": "2026-02-21",
+  "endDate": "2026-02-22",
   "location": "Sri Lanka",
   "tags": ["Sri Lanka", "Culture", "Nature", "Train", "Beach"],
   "travelers": ["Ryvn", "Julian"],
   "themeColor": "#059669",
+  "routeGroups": [
+    { "id": "ryvn", "name": "Ryvn", "color": "rose", "travelers": ["Ryvn"] },
+    { "id": "julian", "name": "Julian", "color": "sky", "travelers": ["Julian"] }
+  ],
   "days": [
     {
       "date": "2026-02-14",
       "title": "Day 1 — Arrival in Colombo",
       "activities": [
         {
-          "id": "sl1-1",
+          "id": "sl1-1j",
           "time": "08:15",
           "title": "Flight JD487 — Beijing (PKX) to Colombo",
-          "description": "Julian's outbound flight from Beijing Daxing. Ryvn arrives on a separate flight (TBD).",
+          "description": "Julian's outbound flight from Beijing Daxing. Direct flight.",
           "location": "Beijing Daxing International Airport (PKX)",
           "coordinates": { "lat": 39.5098, "lng": 116.4105 },
           "category": "transport",
+          "routeGroup": "julian",
           "tips": "Bring a good book — it's a long flight."
         },
         {
-          "id": "sl1-2",
+          "id": "sl1-1r",
+          "time": "10:45",
+          "title": "Flight CX489 — Taipei (TPE) to Hong Kong",
+          "description": "Ryvn's outbound leg. Cathay Pacific CX489 from Taoyuan to Hong Kong.",
+          "location": "Taiwan Taoyuan International Airport (TPE)",
+          "coordinates": { "lat": 25.0797, "lng": 121.2342 },
+          "category": "transport",
+          "routeGroup": "ryvn"
+        },
+        {
+          "id": "sl1-2r",
+          "time": "13:00",
+          "title": "Arrive Hong Kong — First Class Lounge",
+          "description": "7-hour layover at Hong Kong International Airport. Relax in the Cathay Pacific First Class Lounge.",
+          "location": "Hong Kong International Airport (HKG)",
+          "coordinates": { "lat": 22.3080, "lng": 113.9185 },
+          "category": "transport",
+          "routeGroup": "ryvn",
+          "duration": "7h10m"
+        },
+        {
+          "id": "sl1-2j",
           "time": "14:20",
-          "title": "Land at Colombo (CMB)",
+          "title": "Julian lands at Colombo (CMB)",
           "description": "Arrive at Bandaranaike International Airport. Pick up local SIM card and arrange transfer to hotel.",
           "location": "Bandaranaike International Airport (CMB)",
           "coordinates": { "lat": 7.1808, "lng": 79.8841 },
           "category": "transport",
+          "routeGroup": "julian",
           "tips": "Get a Dialog or Mobitel SIM at the airport arrivals hall — fast data for cheap."
         },
         {
-          "id": "sl1-3",
+          "id": "sl1-3j",
           "time": "15:00",
           "title": "Transfer to Negombo",
           "description": "Short 15-minute drive from the airport to the hotel in Negombo.",
           "location": "Negombo",
           "coordinates": { "lat": 7.2108, "lng": 79.8358 },
           "category": "transport",
+          "routeGroup": "julian",
           "duration": "15m"
         },
         {
@@ -56,13 +84,34 @@
           "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/x7FsPzC6BWqdu3zo8" }]
         },
         {
-          "id": "sl1-5",
+          "id": "sl1-5j",
           "time": "18:30",
           "title": "Dinner & Beach Sunset",
           "description": "Enjoy fresh seafood at the hotel or walk to a nearby restaurant along Negombo Beach. Catch the sunset over the Indian Ocean.",
           "location": "Negombo Beach",
           "coordinates": { "lat": 7.2422, "lng": 79.8385 },
-          "category": "food"
+          "category": "food",
+          "routeGroup": "julian"
+        },
+        {
+          "id": "sl1-3r",
+          "time": "20:10",
+          "title": "Flight CX611 — Hong Kong to Colombo",
+          "description": "Cathay Pacific CX611. Overnight flight arriving late.",
+          "location": "Hong Kong International Airport (HKG)",
+          "coordinates": { "lat": 22.3080, "lng": 113.9185 },
+          "category": "transport",
+          "routeGroup": "ryvn"
+        },
+        {
+          "id": "sl1-4r",
+          "time": "23:30",
+          "title": "Ryvn lands at Colombo (CMB)",
+          "description": "Late-night arrival at Bandaranaike International Airport. Transfer to hotel in Negombo.",
+          "location": "Bandaranaike International Airport (CMB)",
+          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "category": "transport",
+          "routeGroup": "ryvn"
         }
       ]
     },
@@ -452,21 +501,70 @@
         {
           "id": "sl8-3",
           "time": "16:20",
-          "title": "Return Flight — Colombo to Beijing",
-          "description": "Flight departs CMB at 16:20. Lands at Beijing Daxing (PKX) at 01:55+1 the next day.",
+          "title": "Flight JD488 — Colombo to Beijing",
+          "description": "Julian's return flight. Departs CMB at 16:20, lands at Beijing Daxing (PKX) at 01:55+1 the next day.",
           "location": "Bandaranaike International Airport (CMB)",
           "coordinates": { "lat": 7.1808, "lng": 79.8841 },
-          "category": "transport"
+          "category": "transport",
+          "routeGroup": "julian"
         },
         {
           "id": "sl8-4",
           "time": "01:55",
-          "title": "Land at Beijing (PKX) — Next Day",
+          "title": "Julian lands at Beijing (PKX) — Next Day",
           "description": "Arrive back in Beijing early morning on Feb 22.",
           "location": "Beijing Daxing International Airport (PKX)",
           "coordinates": { "lat": 39.5098, "lng": 116.4105 },
           "category": "transport",
+          "routeGroup": "julian",
           "tips": "Book an airport hotel if you need rest before heading home."
+        }
+      ]
+    },
+    {
+      "date": "2026-02-22",
+      "title": "Day 9 — Ryvn's Return",
+      "activities": [
+        {
+          "id": "sl9-1",
+          "time": "00:45",
+          "title": "Flight CX612 — Colombo to Hong Kong",
+          "description": "Cathay Pacific CX612. Red-eye departure from Colombo.",
+          "location": "Bandaranaike International Airport (CMB)",
+          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "category": "transport",
+          "routeGroup": "ryvn"
+        },
+        {
+          "id": "sl9-2",
+          "time": "08:40",
+          "title": "Arrive Hong Kong — Layover",
+          "description": "7-hour layover at Hong Kong International Airport. Hit the Cathay Pacific lounge for breakfast and rest.",
+          "location": "Hong Kong International Airport (HKG)",
+          "coordinates": { "lat": 22.3080, "lng": 113.9185 },
+          "category": "transport",
+          "routeGroup": "ryvn",
+          "duration": "7h05m"
+        },
+        {
+          "id": "sl9-3",
+          "time": "15:45",
+          "title": "Flight CX488 — Hong Kong to Taipei",
+          "description": "Cathay Pacific CX488. Final leg home.",
+          "location": "Hong Kong International Airport (HKG)",
+          "coordinates": { "lat": 22.3080, "lng": 113.9185 },
+          "category": "transport",
+          "routeGroup": "ryvn"
+        },
+        {
+          "id": "sl9-4",
+          "time": "17:35",
+          "title": "Land at Taipei (TPE)",
+          "description": "Arrive back in Taipei. Trip complete!",
+          "location": "Taiwan Taoyuan International Airport (TPE)",
+          "coordinates": { "lat": 25.0797, "lng": 121.2342 },
+          "category": "transport",
+          "routeGroup": "ryvn"
         }
       ]
     }
