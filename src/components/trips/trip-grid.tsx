@@ -15,11 +15,33 @@ export function TripGrid({ trips }: { trips: TripSummary[] }) {
     );
   }
 
+  // Single trip — full-width feature
+  if (trips.length === 1) {
+    return (
+      <div className="max-w-4xl">
+        <TripCard trip={trips[0]} index={0} variant="feature" />
+      </div>
+    );
+  }
+
+  // Multiple trips — asymmetric grid
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {trips.map((trip, index) => (
-        <TripCard key={trip.id} trip={trip} index={index} />
-      ))}
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+      {trips.map((trip, index) => {
+        const variant =
+          index === 0 ? "feature" : index <= 2 ? "standard" : "compact";
+        const colSpan =
+          index === 0
+            ? "lg:col-span-7 lg:row-span-2"
+            : index <= 2
+              ? "lg:col-span-5"
+              : "lg:col-span-4";
+        return (
+          <div key={trip.id} className={colSpan}>
+            <TripCard trip={trip} index={index} variant={variant} />
+          </div>
+        );
+      })}
     </div>
   );
 }

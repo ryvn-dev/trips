@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CalendarDays, MapPin, Users, Share2, Check } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Fragment } from "react";
+import { CalendarDays, MapPin, Users, Share2, Check, Map as MapIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Trip } from "@/types/trip";
 import { useState } from "react";
@@ -23,7 +23,13 @@ function formatDateRange(start: string, end: string): string {
   return `${s.toLocaleDateString("en-US", startOpts)} – ${e.toLocaleDateString("en-US", endOpts)}`;
 }
 
-export function TripHero({ trip }: { trip: Trip }) {
+export function TripHero({
+  trip,
+  onEnterItinerary,
+}: {
+  trip: Trip;
+  onEnterItinerary?: () => void;
+}) {
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
@@ -61,6 +67,13 @@ export function TripHero({ trip }: { trip: Trip }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
+        {/* Large ghost location text */}
+        <div className="absolute bottom-0 right-0 p-4 sm:p-8 pointer-events-none select-none overflow-hidden">
+          <span className="text-[4rem] sm:text-[7rem] lg:text-[9rem] font-bold leading-none text-white/[0.06] whitespace-nowrap">
+            {trip.location}
+          </span>
+        </div>
+
         {/* Content overlay */}
         <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8">
           <div className="mx-auto max-w-6xl">
@@ -69,19 +82,17 @@ export function TripHero({ trip }: { trip: Trip }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              {/* Tags */}
-              <div className="mb-3 flex flex-wrap gap-1.5">
-                {trip.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    className="border-0 bg-white/15 text-white/90 backdrop-blur-sm text-xs"
-                  >
-                    {tag}
-                  </Badge>
+              {/* Tags — editorial slash-separated */}
+              <div className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-white/60">
+                {trip.tags.map((tag, i) => (
+                  <Fragment key={tag}>
+                    {i > 0 && <span>/</span>}
+                    <span>{tag}</span>
+                  </Fragment>
                 ))}
               </div>
 
-              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl leading-[0.95]">
                 {trip.title}
               </h1>
 
@@ -130,6 +141,20 @@ export function TripHero({ trip }: { trip: Trip }) {
           </Button>
         </div>
       </div>
+
+      {/* Mobile CTA — enter itinerary mode */}
+      {onEnterItinerary && (
+        <div className="px-4 py-6 flex justify-center lg:hidden">
+          <Button
+            onClick={onEnterItinerary}
+            size="lg"
+            className="gap-2 rounded-full bg-ink text-paper hover:bg-ink/90 cursor-pointer"
+          >
+            <MapIcon className="h-4 w-4" />
+            View Itinerary
+          </Button>
+        </div>
+      )}
     </motion.div>
   );
 }

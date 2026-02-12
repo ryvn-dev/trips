@@ -163,7 +163,23 @@
   mix-blend-mode: multiply;
 }
 
-/* Timeline connector line */
+/* Glassmorphism drawer surface */
+.drawer-glass {
+  background: rgba(250, 245, 245, 0.82);
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+}
+
+/* Hide scrollbar in drawer */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Timeline connector line — editorial dashed style */
 .timeline-line {
   position: relative;
 }
@@ -175,5 +191,11 @@
   top: 40px;
   bottom: 0;
   width: 1px;
-  background: linear-gradient(to bottom, var(--color-sand), transparent);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-sand) 0px,
+    var(--color-sand) 4px,
+    transparent 4px,
+    transparent 8px
+  );
 }
