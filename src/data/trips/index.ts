@@ -1,10 +1,8 @@
 import type { Trip, TripSummary } from "@/types/trip";
 
-import tokyoTrip from "./tokyo-2026-summer.json";
-import kyotoTrip from "./kyoto-weekend.json";
 import sriLankaTrip from "./sri-lanka-2026.json";
 
-const trips: Trip[] = [tokyoTrip, kyotoTrip, sriLankaTrip] as Trip[];
+const trips: Trip[] = [sriLankaTrip] as Trip[];
 
 export function getAllTrips(): TripSummary[] {
   return trips
