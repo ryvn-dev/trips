@@ -165,7 +165,7 @@
 
 /* Glassmorphism drawer surface */
 .drawer-glass {
-  background: rgba(250, 245, 245, 0.82);
+  background: rgba(250, 245, 245, 0.88);
   backdrop-filter: blur(24px) saturate(1.5);
   -webkit-backdrop-filter: blur(24px) saturate(1.5);
 }

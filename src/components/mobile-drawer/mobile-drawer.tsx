@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, useMemo } from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
+import { ArrowLeft } from "lucide-react";
 import { DrawerDaySelector } from "./drawer-day-selector";
 import { DrawerPeekCard } from "./drawer-peek-card";
 import { DrawerActivityList } from "./drawer-activity-list";
@@ -23,6 +24,7 @@ export function MobileDrawer({
   activeRoutes,
   onToggleRoute,
   onActiveActivityChange,
+  onBack,
 }: {
   trip: Trip;
   activeActivityId: string | null;
@@ -31,6 +33,7 @@ export function MobileDrawer({
   activeRoutes: Set<string>;
   onToggleRoute: (routeId: string) => void;
   onActiveActivityChange: (id: string) => void;
+  onBack?: () => void;
 }) {
   const [activeSnap, setActiveSnap] = useState<SnapPoint>(HALF_SNAP);
   const [activeDay, setActiveDay] = useState(0);
@@ -97,7 +100,7 @@ export function MobileDrawer({
     >
       <DrawerPrimitive.Portal>
         <DrawerPrimitive.Content
-          className="drawer-glass fixed inset-x-0 bottom-0 z-50 flex h-full max-h-[92vh] flex-col rounded-t-2xl border-t border-border/30 outline-none"
+          className="drawer-glass fixed inset-x-0 bottom-0 z-50 flex h-full max-h-[92vh] flex-col rounded-t-2xl border-t border-border/30 outline-none lg:!hidden"
         >
           {/* Drag handle */}
           <div className="flex justify-center pt-3 pb-1 cursor-grab active:cursor-grabbing">
@@ -112,6 +115,19 @@ export function MobileDrawer({
             />
           ) : (
             <>
+              {/* Back link */}
+              {onBack && (
+                <div className="px-4 pt-1 pb-2">
+                  <button
+                    onClick={onBack}
+                    className="flex items-center gap-1 text-xs text-ink-muted transition-colors hover:text-ink cursor-pointer"
+                  >
+                    <ArrowLeft className="h-3 w-3" />
+                    Overview
+                  </button>
+                </div>
+              )}
+
               {/* Day selector */}
               <DrawerDaySelector
                 days={trip.days}

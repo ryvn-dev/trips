@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Fragment } from "react";
-import { CalendarDays, MapPin, Users, Share2, Check, Map as MapIcon } from "lucide-react";
+import { CalendarDays, MapPin, Users, Share2, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Trip } from "@/types/trip";
 import { useState } from "react";
@@ -23,13 +23,7 @@ function formatDateRange(start: string, end: string): string {
   return `${s.toLocaleDateString("en-US", startOpts)} – ${e.toLocaleDateString("en-US", endOpts)}`;
 }
 
-export function TripHero({
-  trip,
-  onEnterItinerary,
-}: {
-  trip: Trip;
-  onEnterItinerary?: () => void;
-}) {
+export function TripHero({ trip }: { trip: Trip }) {
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
@@ -56,7 +50,7 @@ export function TripHero({
       transition={{ duration: 0.6 }}
     >
       {/* Cover Image */}
-      <div className="relative h-[280px] sm:h-[380px] lg:h-[420px] overflow-hidden photo-filter">
+      <div className="relative h-screen lg:h-[420px] overflow-hidden photo-filter">
         <Image
           src={trip.coverImage}
           alt={trip.title}
@@ -65,17 +59,16 @@ export function TripHero({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        {/* Gradient + text overlay — hidden on mobile (drawer covers it) */}
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-        {/* Large ghost location text */}
-        <div className="absolute bottom-0 right-0 p-4 sm:p-8 pointer-events-none select-none overflow-hidden">
-          <span className="text-[4rem] sm:text-[7rem] lg:text-[9rem] font-bold leading-none text-white/[0.06] whitespace-nowrap">
+        <div className="hidden lg:block absolute bottom-0 right-0 p-8 pointer-events-none select-none overflow-hidden">
+          <span className="text-[9rem] font-bold leading-none text-white/[0.06] whitespace-nowrap">
             {trip.location}
           </span>
         </div>
 
-        {/* Content overlay */}
-        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8">
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 p-8">
           <div className="mx-auto max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -92,11 +85,11 @@ export function TripHero({
                 ))}
               </div>
 
-              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl leading-[0.95]">
+              <h1 className="text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[0.95]">
                 {trip.title}
               </h1>
 
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
+              <p className="mt-2 max-w-2xl text-base leading-relaxed text-white/80">
                 {trip.description}
               </p>
 
@@ -119,8 +112,8 @@ export function TripHero({
           </div>
         </div>
 
-        {/* Share button */}
-        <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+        {/* Share button — desktop only */}
+        <div className="hidden lg:block absolute top-6 right-6">
           <Button
             variant="secondary"
             size="sm"
@@ -142,19 +135,6 @@ export function TripHero({
         </div>
       </div>
 
-      {/* Mobile CTA — enter itinerary mode */}
-      {onEnterItinerary && (
-        <div className="px-4 py-6 flex justify-center lg:hidden">
-          <Button
-            onClick={onEnterItinerary}
-            size="lg"
-            className="gap-2 rounded-full bg-ink text-paper hover:bg-ink/90 cursor-pointer"
-          >
-            <MapIcon className="h-4 w-4" />
-            View Itinerary
-          </Button>
-        </div>
-      )}
     </motion.div>
   );
 }

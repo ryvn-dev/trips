@@ -2,20 +2,21 @@
 
 import { useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
 import { TripHero } from "@/components/itinerary/trip-hero";
-import { TripStats } from "@/components/itinerary/trip-stats";
 import { TimelineView } from "@/components/itinerary/timeline-view";
 import { MapPanel } from "@/components/map/map-panel";
 import { MapProvider } from "@/components/map/map-provider";
 import { MobileDrawer } from "@/components/mobile-drawer/mobile-drawer";
-import { Button } from "@/components/ui/button";
+import { HubDrawer } from "@/components/mobile-drawer/hub-drawer";
+import { GuideDrawer } from "@/components/mobile-drawer/guide-drawer";
+import { GuideTopImage } from "@/components/mobile-drawer/guide-top-image";
 import { buildDefaultActiveRoutes } from "@/lib/route-utils";
 import type { Trip, Activity } from "@/types/trip";
+import type { MobileView } from "@/components/mobile-drawer/hub-drawer";
 
 export function TripDetailClient({ trip }: { trip: Trip }) {
   const [activeActivityId, setActiveActivityId] = useState<string | null>(null);
-  const [mobileItineraryMode, setMobileItineraryMode] = useState(false);
+  const [mobileView, setMobileView] = useState<MobileView>("hub");
   const [activeRoutes, setActiveRoutes] = useState<Set<string>>(() =>
     buildDefaultActiveRoutes(trip.routeGroups),
   );
@@ -40,12 +41,12 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
     setActiveActivityId(activity.id);
   }, []);
 
-  const handleEnterItinerary = useCallback(() => {
-    setMobileItineraryMode(true);
-  }, []);
-
   const handleScrollSync = useCallback((id: string) => {
     setActiveActivityId(id);
+  }, []);
+
+  const handleBackToHub = useCallback(() => {
+    setMobileView("hub");
   }, []);
 
   return (
@@ -53,23 +54,21 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
       {/* === Mobile Layout === */}
       <div className="lg:hidden">
         <AnimatePresence mode="wait">
-          {!mobileItineraryMode ? (
-            /* Phase 1: Hero + Overview */
+          {mobileView === "hub" && (
             <motion.div
-              key="hero"
+              key="hub"
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <TripHero
+              <TripHero trip={trip} />
+              <HubDrawer
                 trip={trip}
-                onEnterItinerary={handleEnterItinerary}
+                onNavigate={setMobileView}
               />
-              <div className="border-t border-border">
-                <TripStats trip={trip} />
-              </div>
             </motion.div>
-          ) : (
-            /* Phase 2: Map + Drawer */
+          )}
+
+          {mobileView === "itinerary" && (
             <motion.div
               key="itinerary"
               initial={{ opacity: 0 }}
@@ -77,7 +76,6 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
               transition={{ duration: 0.4 }}
               className="fixed inset-0 z-40"
             >
-              {/* Full-screen map background */}
               <MapProvider>
                 <MapPanel
                   trip={trip}
@@ -89,19 +87,6 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
                 />
               </MapProvider>
 
-              {/* Back button */}
-              <div className="absolute top-4 left-4 z-50">
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  onClick={() => setMobileItineraryMode(false)}
-                  className="h-10 w-10 rounded-full shadow-lg bg-white/80 backdrop-blur-sm border-0 cursor-pointer"
-                >
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-              </div>
-
-              {/* Bottom sheet drawer */}
               <MobileDrawer
                 trip={trip}
                 activeActivityId={activeActivityId}
@@ -110,6 +95,45 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
                 activeRoutes={activeRoutes}
                 onToggleRoute={handleToggleRoute}
                 onActiveActivityChange={handleScrollSync}
+                onBack={handleBackToHub}
+              />
+            </motion.div>
+          )}
+
+          {mobileView === "preparation" && trip.guides?.preparation && (
+            <motion.div
+              key="preparation"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+              className="fixed inset-0 z-40"
+            >
+              <GuideTopImage
+                src={trip.guides.preparation.coverImage || trip.coverImage}
+                alt={trip.guides.preparation.title}
+              />
+              <GuideDrawer
+                guide={trip.guides.preparation}
+                onBack={handleBackToHub}
+              />
+            </motion.div>
+          )}
+
+          {mobileView === "culture" && trip.guides?.culture && (
+            <motion.div
+              key="culture"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+              className="fixed inset-0 z-40"
+            >
+              <GuideTopImage
+                src={trip.guides.culture.coverImage || trip.coverImage}
+                alt={trip.guides.culture.title}
+              />
+              <GuideDrawer
+                guide={trip.guides.culture}
+                onBack={handleBackToHub}
               />
             </motion.div>
           )}
