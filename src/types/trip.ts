@@ -40,6 +40,19 @@ export interface TripDay {
   activities: Activity[];
 }
 
+export interface TripGuideSection {
+  title: string;
+  content: string;
+  image?: string;
+  icon?: string;
+}
+
+export interface TripGuide {
+  title: string;
+  coverImage?: string;
+  sections: TripGuideSection[];
+}
+
 export interface Trip {
   id: string;
   title: string;
@@ -53,6 +66,10 @@ export interface Trip {
   days: TripDay[];
   themeColor?: string;
   routeGroups?: RouteGroup[];
+  guides?: {
+    preparation?: TripGuide;
+    culture?: TripGuide;
+  };
 }
 
 export type TripSummary = Omit<Trip, "days"> & {

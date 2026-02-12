@@ -2,7 +2,7 @@
   "id": "sri-lanka-2026",
   "title": "Sri Lanka February 2026",
   "description": "An 8-day journey through Sri Lanka — ancient rock fortresses, misty tea country, the famous hill-country train, and colonial Galle Fort by the sea.",
-  "coverImage": "https://images.unsplash.com/photo-1704797390901-e1d20bd46647?w=1200&q=80",
+  "coverImage": "/images/sri-lanka/overview.jpg",
   "startDate": "2026-02-14",
   "endDate": "2026-02-22",
   "location": "Sri Lanka",
@@ -568,5 +568,74 @@
         }
       ]
     }
-  ]
+  ],
+  "guides": {
+    "preparation": {
+      "title": "Pre-Trip Preparation",
+      "coverImage": "/images/sri-lanka/preparation.jpg",
+      "sections": [
+        {
+          "title": "Visa Requirements",
+          "icon": "🛂",
+          "content": "Taiwan passport holders can obtain a 30-day ETA (Electronic Travel Authorization) online before departure. Apply at least 3 days before travel at www.eta.gov.lk. Cost is approximately USD 50. Passport must be valid for at least 6 months from entry date."
+        },
+        {
+          "title": "What to Pack",
+          "icon": "🧳",
+          "content": "Light, breathable clothing (tropical climate, 27-32°C). Modest clothing for temple visits — shoulders and knees must be covered. Comfortable walking shoes for ruins and trails. Rain jacket or small umbrella (February is relatively dry but occasional showers occur). Sunscreen SPF 50+, insect repellent, and a reusable water bottle."
+        },
+        {
+          "title": "Currency & Budget",
+          "icon": "💰",
+          "content": "Sri Lankan Rupee (LKR). As of Feb 2026, roughly 1 USD = 320 LKR. ATMs widely available in cities; Visa/Mastercard accepted at hotels and larger restaurants. Cash preferred for tuk-tuks, street food, and smaller shops. Budget roughly USD 50-80/day for mid-range travel (meals, transport, entrance fees)."
+        },
+        {
+          "title": "Health & Safety",
+          "icon": "🏥",
+          "content": "No mandatory vaccinations, but Hepatitis A and Typhoid recommended. Drink bottled or filtered water only. Mosquito repellent advised — dengue is present year-round. Travel insurance strongly recommended. Emergency number: 119 (police), 110 (ambulance)."
+        },
+        {
+          "title": "SIM Card & Internet",
+          "icon": "📱",
+          "content": "Purchase a local SIM at Bandaranaike Airport arrivals. Dialog or Mobitel offer tourist data packages — 15GB for ~USD 5. Coverage is excellent in cities and along major routes. Most hotels and cafés have free WiFi."
+        },
+        {
+          "title": "Getting Around",
+          "icon": "🚗",
+          "content": "Hire a private driver for intercity travel (most cost-effective for 2 people, ~USD 50-70/day). Trains are scenic but slow — book first class for Kandy-Ella route. Tuk-tuks for short trips within cities (negotiate fare beforehand or use PickMe app). Uber operates in Colombo."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Culture & History",
+      "coverImage": "/images/sri-lanka/culture.jpg",
+      "sections": [
+        {
+          "title": "Brief History",
+          "icon": "📚",
+          "content": "Sri Lanka's recorded history spans over 3,000 years. The island was known as Ceylon during British colonial rule (1815-1948). Ancient kingdoms left behind remarkable ruins at Anuradhapura and Polonnaruwa, both UNESCO World Heritage Sites. The island gained independence in 1948 and was renamed Sri Lanka in 1972."
+        },
+        {
+          "title": "Customs & Etiquette",
+          "icon": "🙏",
+          "content": "Remove shoes before entering temples and homes. Dress modestly at religious sites — cover shoulders and knees. Use your right hand for greetings and eating. Always ask permission before photographing people or sacred sites. Standing with your back to a Buddha statue is considered disrespectful. Greet locals with palms together (\"Ayubowan\" — may you live long)."
+        },
+        {
+          "title": "Food Culture",
+          "icon": "🍛",
+          "content": "Rice and curry is the staple meal — expect 5-8 small dishes served together. Hoppers (crispy bowl-shaped pancakes) and string hoppers are breakfast staples. Kottu roti (chopped roti stir-fried with vegetables and meat) is popular street food. Sri Lankan cuisine is spicy — \"not spicy\" still has heat by most standards. Fresh tropical fruits are abundant: king coconut, papaya, rambutan, and wood apple. Ceylon tea is world-famous — visit a tea plantation in the hill country."
+        },
+        {
+          "title": "Language Basics",
+          "icon": "🗣️",
+          "content": "Official languages: Sinhala and Tamil. English is widely spoken in tourist areas, hotels, and by younger generations. Useful phrases — Hello: \"Ayubowan\" (Sinhala) / \"Vanakkam\" (Tamil). Thank you: \"Sthuthi\" (Sinhala). Yes/No: \"Ow\"/\"Naha\". How much?: \"Kiyada?\". Most signs are trilingual (Sinhala, Tamil, English)."
+        },
+        {
+          "title": "Wildlife & Nature",
+          "icon": "🐘",
+          "content": "Sri Lanka is one of the world's biodiversity hotspots. Home to wild elephants, leopards, sloth bears, and over 430 bird species. National parks like Yala and Udawalawe offer safari experiences. Whale watching season off the southern coast runs December-April (blue whales and sperm whales). Please support ethical wildlife tourism — avoid elephant riding and facilities that chain animals."
+        }
+      ]
+    }
+  }
 }
