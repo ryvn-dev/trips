@@ -5,6 +5,7 @@ import {
   Map,
   AdvancedMarker,
   useMap,
+  useMapsLibrary,
   InfoWindow,
   useAdvancedMarkerRef,
 } from "@vis.gl/react-google-maps";
@@ -299,6 +300,7 @@ function RouteAnimator({
   bottomPadding?: number;
 }) {
   const map = useMap();
+  const markerLib = useMapsLibrary("marker");
   const prevIdRef = useRef<string | null>(null);
   const markerRef = useRef<google.maps.marker.AdvancedMarkerElement | null>(null);
   const polylineRef = useRef<google.maps.Polyline | null>(null);
@@ -306,9 +308,11 @@ function RouteAnimator({
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    // Don't track clicks until the map is ready — otherwise prevIdRef gets
-    // updated before the map loads and we lose the click pair (mobile bug).
-    if (!map) return;
+    // Don't track clicks until map + marker library are ready — otherwise
+    // prevIdRef gets updated before they load and we lose the click pair.
+    // On real mobile devices the marker library loads lazily, so without
+    // this guard AdvancedMarkerElement creation silently fails.
+    if (!map || !markerLib) return;
 
     // Cancel any in-flight animation
     if (rafRef.current) {
@@ -383,7 +387,7 @@ function RouteAnimator({
     img.style.imageRendering = "pixelated";
     content.appendChild(img);
 
-    const capy = new google.maps.marker.AdvancedMarkerElement({
+    const capy = new markerLib.AdvancedMarkerElement({
       map,
       position: path[0],
       content,
@@ -446,7 +450,7 @@ function RouteAnimator({
       }
       onAnimatingChange(false);
     };
-  }, [map, clickedActivityId, routeLookup, onAnimatingChange, bottomPadding]);
+  }, [map, markerLib, clickedActivityId, routeLookup, onAnimatingChange, bottomPadding]);
 
   return null;
 }
