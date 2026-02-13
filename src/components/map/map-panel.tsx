@@ -168,20 +168,11 @@ function ActivityMarker({
         <InfoWindow
           anchor={marker}
           headerDisabled
-          className="max-w-[200px]"
+          className="map-tooltip"
         >
-          <div className="p-1">
-            <p className="font-semibold text-sm text-gray-900">
-              {activity.title}
-            </p>
-            <p className="text-xs text-gray-500 mt-0.5">{activity.location}</p>
-            {activity.time && (
-              <p className="text-xs text-gray-400 mt-0.5">
-                {activity.time}
-                {activity.duration && ` · ${activity.duration}`}
-              </p>
-            )}
-          </div>
+          <p className="map-tooltip-text">
+            {activity.title}
+          </p>
         </InfoWindow>
       )}
     </>
@@ -307,9 +298,14 @@ function RouteAnimator({
   const rafRef = useRef<number>(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Stable refs for values used inside the effect — prevents dep changes
-  // (e.g. bottomPadding shifting from mobile address bar) from killing
-  // in-flight animations via effect cleanup.
+  // All values read via refs so the effect ONLY re-runs when clickedActivityId
+  // changes. On mobile, map/markerLib/bottomPadding references can change on
+  // re-renders (address bar, context updates), which would trigger cleanup and
+  // kill in-flight animations if they were in the deps array.
+  const mapRef = useRef(map);
+  mapRef.current = map;
+  const markerLibRef = useRef(markerLib);
+  markerLibRef.current = markerLib;
   const routeLookupRef = useRef(routeLookup);
   routeLookupRef.current = routeLookup;
   const onAnimatingChangeRef = useRef(onAnimatingChange);
@@ -318,8 +314,10 @@ function RouteAnimator({
   bottomPaddingRef.current = bottomPadding;
 
   useEffect(() => {
-    // Don't track clicks until map + marker library are ready — otherwise
-    // prevIdRef gets updated before they load and we lose the click pair.
+    const map = mapRef.current;
+    const markerLib = markerLibRef.current;
+
+    // Not ready yet — don't update prevIdRef so the click is preserved
     if (!map || !markerLib) return;
 
     // Cancel any in-flight animation
@@ -460,11 +458,11 @@ function RouteAnimator({
       }
       onAnimatingChangeRef.current(false);
     };
-    // Only re-run when clickedActivityId changes, or map/markerLib become ready.
-    // Other values (routeLookup, onAnimatingChange, bottomPadding) are read via
-    // refs so their changes don't trigger cleanup that would kill animations.
+    // ONLY clickedActivityId triggers re-runs. Everything else is read via refs
+    // to prevent unstable references (map, markerLib, bottomPadding) from
+    // triggering cleanup that kills in-flight animations on mobile.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map, markerLib, clickedActivityId]);
+  }, [clickedActivityId]);
 
   return null;
 }
