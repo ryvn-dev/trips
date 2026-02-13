@@ -306,10 +306,11 @@ function RouteAnimator({
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const prevId = prevIdRef.current;
-    prevIdRef.current = clickedActivityId;
+    // Don't track clicks until the map is ready — otherwise prevIdRef gets
+    // updated before the map loads and we lose the click pair (mobile bug).
+    if (!map) return;
 
-    // Always cancel any in-flight animation
+    // Cancel any in-flight animation
     if (rafRef.current) {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = 0;
@@ -328,7 +329,10 @@ function RouteAnimator({
     }
     onAnimatingChange(false);
 
-    if (!map || !prevId || !clickedActivityId || prevId === clickedActivityId) return;
+    const prevId = prevIdRef.current;
+    prevIdRef.current = clickedActivityId;
+
+    if (!prevId || !clickedActivityId || prevId === clickedActivityId) return;
 
     // Check if these two activities are connected by a driving route
     let entry = routeLookup.get(`${prevId}->${clickedActivityId}`);
