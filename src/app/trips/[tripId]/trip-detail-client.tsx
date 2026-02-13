@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { Share2, Check } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { TripHero } from "@/components/itinerary/trip-hero";
 import { TimelineView } from "@/components/itinerary/timeline-view";
@@ -16,10 +17,27 @@ import type { MobileView } from "@/components/mobile-drawer/hub-drawer";
 
 export function TripDetailClient({ trip }: { trip: Trip }) {
   const [activeActivityId, setActiveActivityId] = useState<string | null>(null);
+  const [clickedActivityId, setClickedActivityId] = useState<string | null>(null);
   const [mobileView, setMobileView] = useState<MobileView>("hub");
   const [activeRoutes, setActiveRoutes] = useState<Set<string>>(() =>
     buildDefaultActiveRoutes(trip.routeGroups),
   );
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = useCallback(async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: trip.title, url });
+        return;
+      } catch {
+        // Fallback to clipboard
+      }
+    }
+    await navigator.clipboard.writeText(url);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }, [trip.title]);
 
   const handleToggleRoute = useCallback((routeId: string) => {
     setActiveRoutes((prev) => {
@@ -39,6 +57,7 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
 
   const handleActivityClick = useCallback((activity: Activity) => {
     setActiveActivityId(activity.id);
+    setClickedActivityId(activity.id);
   }, []);
 
   const handleScrollSync = useCallback((id: string) => {
@@ -67,6 +86,17 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
               transition={{ duration: 0.3 }}
             >
               <TripHero trip={trip} />
+              {/* Share — floating top-right over hero */}
+              <button
+                onClick={handleShare}
+                className="fixed top-5 right-5 z-50 flex h-9 w-9 items-center justify-center rounded-full bg-black/20 backdrop-blur-sm text-white transition-colors hover:bg-black/30 cursor-pointer"
+              >
+                {copied ? (
+                  <Check className="h-4 w-4" />
+                ) : (
+                  <Share2 className="h-4 w-4" />
+                )}
+              </button>
               <HubDrawer
                 trip={trip}
                 onNavigate={handleNavigate}
@@ -86,6 +116,7 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
                 <MapPanel
                   trip={trip}
                   activeActivityId={activeActivityId}
+                  clickedActivityId={clickedActivityId}
                   onActivityHover={handleActivityHover}
                   onActivityClick={handleActivityClick}
                   activeRoutes={activeRoutes}
@@ -170,6 +201,7 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
                 <MapPanel
                   trip={trip}
                   activeActivityId={activeActivityId}
+                  clickedActivityId={clickedActivityId}
                   onActivityHover={handleActivityHover}
                   onActivityClick={handleActivityClick}
                   activeRoutes={activeRoutes}

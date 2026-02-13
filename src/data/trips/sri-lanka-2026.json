@@ -6,12 +6,35 @@
   "startDate": "2026-02-14",
   "endDate": "2026-02-22",
   "location": "Sri Lanka",
-  "tags": ["Sri Lanka", "Culture", "Nature", "Train", "Beach"],
-  "travelers": ["Ryvn", "Julian"],
+  "tags": [
+    "Sri Lanka",
+    "Culture",
+    "Nature",
+    "Train",
+    "Beach"
+  ],
+  "travelers": [
+    "Ryvn",
+    "Julian"
+  ],
   "themeColor": "#059669",
   "routeGroups": [
-    { "id": "ryvn", "name": "Ryvn", "color": "rose", "travelers": ["Ryvn"] },
-    { "id": "julian", "name": "Julian", "color": "sky", "travelers": ["Julian"] }
+    {
+      "id": "ryvn",
+      "name": "Ryvn",
+      "color": "rose",
+      "travelers": [
+        "Ryvn"
+      ]
+    },
+    {
+      "id": "julian",
+      "name": "Julian",
+      "color": "sky",
+      "travelers": [
+        "Julian"
+      ]
+    }
   ],
   "days": [
     {
@@ -24,7 +47,10 @@
           "title": "Flight JD487 — Beijing (PKX) to Colombo",
           "description": "Julian's outbound flight from Beijing Daxing. Direct flight.",
           "location": "Beijing Daxing International Airport (PKX)",
-          "coordinates": { "lat": 39.5098, "lng": 116.4105 },
+          "coordinates": {
+            "lat": 39.5098,
+            "lng": 116.4105
+          },
           "category": "transport",
           "routeGroup": "julian",
           "tips": "Bring a good book — it's a long flight."
@@ -35,7 +61,10 @@
           "title": "Flight CX489 — Taipei (TPE) to Hong Kong",
           "description": "Ryvn's outbound leg. Cathay Pacific CX489 from Taoyuan to Hong Kong.",
           "location": "Taiwan Taoyuan International Airport (TPE)",
-          "coordinates": { "lat": 25.0797, "lng": 121.2342 },
+          "coordinates": {
+            "lat": 25.0797,
+            "lng": 121.2342
+          },
           "category": "transport",
           "routeGroup": "ryvn"
         },
@@ -45,7 +74,10 @@
           "title": "Arrive Hong Kong — First Class Lounge",
           "description": "7-hour layover at Hong Kong International Airport. Relax in the Cathay Pacific First Class Lounge.",
           "location": "Hong Kong International Airport (HKG)",
-          "coordinates": { "lat": 22.3080, "lng": 113.9185 },
+          "coordinates": {
+            "lat": 22.308,
+            "lng": 113.9185
+          },
           "category": "transport",
           "routeGroup": "ryvn",
           "duration": "7h10m"
@@ -56,7 +88,10 @@
           "title": "Julian lands at Colombo (CMB)",
           "description": "Arrive at Bandaranaike International Airport. Pick up local SIM card and arrange transfer to hotel.",
           "location": "Bandaranaike International Airport (CMB)",
-          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "coordinates": {
+            "lat": 7.1808,
+            "lng": 79.8841
+          },
           "category": "transport",
           "routeGroup": "julian",
           "tips": "Get a Dialog or Mobitel SIM at the airport arrivals hall — fast data for cheap."
@@ -67,11 +102,19 @@
           "title": "Transfer to Negombo",
           "description": "Short 15-minute drive from the airport to the hotel in Negombo.",
           "location": "Negombo",
-          "coordinates": { "lat": 7.2055, "lng": 79.8513 },
+          "coordinates": {
+            "lat": 7.2055,
+            "lng": 79.8513
+          },
           "category": "transport",
           "routeGroup": "julian",
           "duration": "15m",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Negombo,+Sri+Lanka/@7.2055208,79.8512562" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Negombo,+Sri+Lanka/@7.2055208,79.8512562"
+            }
+          ]
         },
         {
           "id": "sl1-4",
@@ -80,9 +123,17 @@
           "description": "Beachfront hotel right on Negombo Beach. Relax after the long flight.",
           "location": "Jetwing Blue",
           "address": "Porutota Road, Ethukala, Negombo 11500",
-          "coordinates": { "lat": 7.24217, "lng": 79.84193 },
+          "coordinates": {
+            "lat": 7.24217,
+            "lng": 79.84193
+          },
           "category": "hotel",
-          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/x7FsPzC6BWqdu3zo8" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://maps.app.goo.gl/x7FsPzC6BWqdu3zo8"
+            }
+          ]
         },
         {
           "id": "sl1-5j",
@@ -90,10 +141,18 @@
           "title": "Dinner & Beach Sunset",
           "description": "Enjoy fresh seafood at the hotel or walk to a nearby restaurant along Negombo Beach. Catch the sunset over the Indian Ocean.",
           "location": "Negombo Beach",
-          "coordinates": { "lat": 7.2443, "lng": 79.8409 },
+          "coordinates": {
+            "lat": 7.2443,
+            "lng": 79.8409
+          },
           "category": "food",
           "routeGroup": "julian",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/search/negombo+beach/@7.2442572,79.8409322" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/negombo+beach/@7.2442572,79.8409322"
+            }
+          ]
         },
         {
           "id": "sl1-3r",
@@ -101,7 +160,10 @@
           "title": "Flight CX611 — Hong Kong to Colombo",
           "description": "Cathay Pacific CX611. Overnight flight arriving late.",
           "location": "Hong Kong International Airport (HKG)",
-          "coordinates": { "lat": 22.3080, "lng": 113.9185 },
+          "coordinates": {
+            "lat": 22.308,
+            "lng": 113.9185
+          },
           "category": "transport",
           "routeGroup": "ryvn"
         },
@@ -111,9 +173,35 @@
           "title": "Ryvn lands at Colombo (CMB)",
           "description": "Late-night arrival at Bandaranaike International Airport. Transfer to hotel in Negombo.",
           "location": "Bandaranaike International Airport (CMB)",
-          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "coordinates": {
+            "lat": 7.1808,
+            "lng": 79.8841
+          },
           "category": "transport",
           "routeGroup": "ryvn"
+        }
+      ],
+      "drivingRoutes": [
+        {
+          "from": "sl1-2j",
+          "to": "sl1-3j",
+          "polyline": "_fyj@qzqfNvDuFFEmD_Cy@k@iBmAMKCGHS~CkFvAsBqBwAw@k@cGgEcFmDeFsDuA_AeAc@[KuBGaHWwBG_@Gg@Me@U]YUYYi@{@gBI_@C]?UF_@HY\\o@d@}@Xy@ViAXaBUGu@K_@AaCCiBTkBHoBCs@Fq@Pc@Hu@Ds@Hg@Hk@Fi@?y@EuAMuAI{@EU?WDOFk@^w@b@YHiA?kBEy@?k@ByDXgBN{@LUH]NeAx@]TWJyCh@{@DwENi@DuBBeAA_@?_@Fw@X_Bd@e@FoATi@DyAJqAP}ABwBDm@I{A_@u@M[ADPnAbFz@zCJh@J|@Bj@Nn@^~@nArCd@|B`@bCRjC?fEIdDGbH?j@@|A@~CB`HJzH@b@PdHHnEJ|BLbEH|BF`F@d@EbBDtAFfCV|FNnHP`C@rABvAJnELjCFnEJtFFjABlA@|@E`BJdEPzBDdADdDDh@@l@FpBz@pHGP[L_ARuAh@k@XGHK`@QbDQzB[vEWdDOvAa@tEMpBUrCe@bFMt@",
+          "distance": "9.6 km",
+          "duration": "20 mins"
+        },
+        {
+          "from": "sl1-3j",
+          "to": "sl1-4",
+          "polyline": "mi~j@s}jfNCX[LkKrDwDpAaAXw@^gC|@gA\\kOnFsG`C{TbIkBh@i@H}@Fo@CkAO@l@Fd@DDyChAyCjAuCfAcAXoA\\MHIHKZoJwCgBi@yL}DeAPsA`@yBt@sBl@wDnA{ClAuBn@qBv@oE`BiI`DqClAe@XeANm@Fs@@eFc@o@G}@U_D]cAIeFS{Ei@mCM",
+          "distance": "4.5 km",
+          "duration": "12 mins"
+        },
+        {
+          "from": "sl1-4",
+          "to": "sl1-5j",
+          "polyline": "_oek@edifNeECqDA",
+          "distance": "0.2 km",
+          "duration": "1 min"
         }
       ]
     },
@@ -127,10 +215,19 @@
           "title": "Drive to Sigiriya",
           "description": "Scenic 4-hour drive through the Sri Lankan countryside from Negombo to the Cultural Triangle. Car pick up from Jetwing Blue.",
           "location": "Negombo → Sigiriya",
-          "coordinates": { "lat": 7.9570, "lng": 80.7603 },
+          "coordinates": {
+            "lat": 7.957,
+            "lng": 80.7603
+          },
           "category": "transport",
           "duration": "4h",
-          "tips": "Private driver all day."
+          "tips": "Private driver all day.",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Sigiriya,+Sri+Lanka/@7.9546777,80.7235929,14z"
+            }
+          ]
         },
         {
           "id": "sl2-2",
@@ -139,12 +236,20 @@
           "description": "Climb the ancient rock fortress — a UNESCO World Heritage Site built in the 5th century. 1,200 steps to the top with stunning views of the surrounding jungle and plains.",
           "location": "Sigiriya Rock Fortress",
           "address": "Sigiriya, Matale District",
-          "coordinates": { "lat": 7.9570, "lng": 80.7603 },
+          "coordinates": {
+            "lat": 7.957,
+            "lng": 80.7603
+          },
           "category": "sight",
           "duration": "2h30m",
           "cost": "$30 USD",
           "tips": "Go early to avoid the midday heat. Bring water. The frescoes halfway up are incredible.",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Sigiriya/@7.9570327,80.760257" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Sigiriya/@7.9570327,80.760257"
+            }
+          ]
         },
         {
           "id": "sl2-3",
@@ -152,10 +257,18 @@
           "title": "Lunch",
           "description": "Lunch near Sigiriya. Try a traditional Sri Lankan rice and curry spread.",
           "location": "Sigiriya area",
-          "coordinates": { "lat": 7.9456, "lng": 80.7616 },
+          "coordinates": {
+            "lat": 7.9456,
+            "lng": 80.7616
+          },
           "category": "food",
           "duration": "1h",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Sigiriya,+Sri+Lanka/@7.9455635,80.7615772" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Sigiriya,+Sri+Lanka/@7.9455635,80.7615772"
+            }
+          ]
         },
         {
           "id": "sl2-4",
@@ -164,9 +277,33 @@
           "description": "Rest and enjoy the pool after the Sigiriya climb.",
           "location": "Ceylon Breeze Hotel Sigiriya",
           "address": "Thithiya, Kolawatta, Digampataha, Sigiriya",
-          "coordinates": { "lat": 7.9766, "lng": 80.7304 },
+          "coordinates": {
+            "lat": 7.9766,
+            "lng": 80.7304
+          },
           "category": "hotel",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Ceylon+Breeze+Hotel+Sigiriya/@7.9765968,80.7303664" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Ceylon+Breeze+Hotel+Sigiriya/@7.9765968,80.7303664"
+            }
+          ]
+        }
+      ],
+      "drivingRoutes": [
+        {
+          "from": "sl2-2",
+          "to": "sl2-3",
+          "polyline": "_rpo@cm|kNLpBBXFRVBtEZnD^rBTVF~@q@nAo@n@MrAEb@EfA]hAk@h@_@j@Qh@E~AIx@UV?p@Fv@C~@Of@]h@_@jC_Db@m@",
+          "distance": "1.2 km",
+          "duration": "3 mins"
+        },
+        {
+          "from": "sl2-3",
+          "to": "sl2-4",
+          "polyline": "szno@{v|kNuBnCeAfAs@h@a@NiALs@Ae@Gq@LUH]Bg@Bm@Bo@He@Vu@f@mAh@y@L}@D}@HUFw@`@eAn@QNBD@HEp@U`CCn@@lABxA?^IbAQ~@C~@@hAJtBF`@\\fALn@@\\CTc@nAEr@Jr@p@tBTl@PTd@\\~B|APNPVJ\\F`@Fp@@lBGbDc@nFCtAB|ABb@Bb@HfARjBZbBt@rC~@tB`BtCtEbI~@xChCjJx@jDh@pBz@bDlA|Cv@bBjArBhDtElCnDd@^^TvDxAf@Th@\\`BpA~@j@j@VRLNRHTHl@JvB@jBWrBAx@N|@t@fC_B@oFIiJs@oHq@gBKIhAKjBWvCCZUrAg@jCK`@Md@CVDZH^@T_@bBO^gCtEmAxBaAjBy@jA]f@sAbBSV[RODYDOF@a@AcAMU_@KsCKm@Kk@QQMw@g@mBs@s@[i@OYEa@Cw@MoAa@gAg@k@k@SY]SYCa@CkBWk@Uc@Y{@w@wAsA{B_Cw@kAk@u@_@Y}@c@cBcAy@g@{@g@u@s@e@e@]a@c@Uc@Yc@O{@[o@OaCc@mAKw@CeBC}BOi@GiBWs@Gu@BiBPs@Lc@NaBl@}@Pg@DkBD}A@kB@}AEuEGu@AkBAyA?y@EeBQeCO_BM]KQMe@cAUm@OSWOmA[q@_@YYq@q@_AaAg@a@w@a@i@MuAUa@AU?eBPu@D{AJBqC",
+          "distance": "9.9 km",
+          "duration": "17 mins"
         }
       ]
     },
@@ -180,10 +317,19 @@
           "title": "Drive to Kandy via Dambulla",
           "description": "Drive south from Sigiriya, stopping at the Dambulla Cave Temple — a UNESCO World Heritage Site with stunning cave murals and Buddha statues. Then continue through the hill country to Kandy.",
           "location": "Sigiriya → Dambulla → Kandy",
-          "coordinates": { "lat": 7.8568, "lng": 80.6517 },
+          "coordinates": {
+            "lat": 7.8568,
+            "lng": 80.6517
+          },
           "category": "transport",
           "duration": "4h",
-          "tips": "Private driver all day."
+          "tips": "Private driver all day.",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Kandy,+Sri+Lanka/@7.2945434,80.5844959,13z"
+            }
+          ]
         },
         {
           "id": "sl3-2",
@@ -192,11 +338,19 @@
           "description": "Sacred Buddhist temple housing the relic of the tooth of Buddha. One of the most important pilgrimage sites in the Buddhist world.",
           "location": "Temple of the Tooth",
           "address": "Sri Dalada Veediya, Kandy",
-          "coordinates": { "lat": 7.2935, "lng": 80.6415 },
+          "coordinates": {
+            "lat": 7.2935,
+            "lng": 80.6415
+          },
           "category": "sight",
           "duration": "1h30m",
           "tips": "Dress modestly — cover shoulders and knees. Remove shoes before entering.",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Sri+Dalada+Museum/@7.2934609,80.6415106" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Sri+Dalada+Museum/@7.2934609,80.6415106"
+            }
+          ]
         },
         {
           "id": "sl3-3",
@@ -204,11 +358,19 @@
           "title": "Lunch by Kandy Lake",
           "description": "Enjoy lunch with views of the scenic Kandy Lake, right in the heart of the city.",
           "location": "Kandy Lake",
-          "coordinates": { "lat": 7.2912, "lng": 80.6421 },
+          "coordinates": {
+            "lat": 7.2912,
+            "lng": 80.6421
+          },
           "category": "food",
           "duration": "1h",
           "tips": "Try Balaji Dosai — amazing South Indian food.",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Kandy+Lake/@7.2912017,80.6420565" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Kandy+Lake/@7.2912017,80.6420565"
+            }
+          ]
         },
         {
           "id": "sl3-4",
@@ -216,8 +378,16 @@
           "title": "Udawattakele Forest Reserve",
           "description": "A serene forest sanctuary above the Temple of the Tooth. Great for a peaceful walk among ancient trees, birds, and monkeys.",
           "location": "Udawattakele Forest Reserve",
-          "coordinates": { "lat": 7.2989, "lng": 80.6424 },
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Udawatta+Kele+Sanctuary/@7.2988782,80.6424033" }],
+          "coordinates": {
+            "lat": 7.2989,
+            "lng": 80.6424
+          },
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Udawatta+Kele+Sanctuary/@7.2988782,80.6424033"
+            }
+          ],
           "category": "sight",
           "duration": "1h30m"
         },
@@ -228,10 +398,18 @@
           "description": "Learn about Sri Lanka's famous tea industry in this museum housed in a former tea factory. Includes tea tasting.",
           "location": "Ceylon Tea Museum",
           "address": "Hantana Road, Kandy",
-          "coordinates": { "lat": 7.2685, "lng": 80.6326 },
+          "coordinates": {
+            "lat": 7.2685,
+            "lng": 80.6326
+          },
           "category": "activity",
           "duration": "1h",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Ceylon+Tea+Museum/@7.2685103,80.6325523" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Ceylon+Tea+Museum/@7.2685103,80.6325523"
+            }
+          ]
         },
         {
           "id": "sl3-6",
@@ -240,9 +418,54 @@
           "description": "Riverside hotel with beautiful views of the Mahaweli River.",
           "location": "Cinnamon Citadel Kandy",
           "address": "124 Srimath Kuda Ratwatte Mawatha, Kandy 20000",
-          "coordinates": { "lat": 7.3057, "lng": 80.6240 },
+          "coordinates": {
+            "lat": 7.3057,
+            "lng": 80.624
+          },
           "category": "hotel",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Cinnamon+Citadel+Kandy/@7.305723,80.6239951" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Cinnamon+Citadel+Kandy/@7.305723,80.6239951"
+            }
+          ]
+        }
+      ],
+      "drivingRoutes": [
+        {
+          "from": "sl3-1",
+          "to": "sl3-2",
+          "polyline": "}o}n@okgkNl}B{Tpz@qI~NwApVG|n@SrPxA`T]fLmChF_DzPmA~SoA~d@cCnJw@hGlA|^tCdLi@|D}@lM_Dfa@cAh}@g@pt@s@xTnHbWxE|b@tElp@xL|W`DlSxDtXnJrGjB`ESjTuEdu@aB`SOhF?`A~@vFBzH{@zX`FvGpGzKdH~KjE`J|C~FnFtElJ~RbIhD`DjM~BrV`FnJ|B`EzEfFfD`GfArQtDrO{A|DSpGvChErCnKbBbHd@zDy@vKoA`Bk@rE~@hGObKRlh@@lOg@|QkCfEZdHzDjMlB|Iz@nN_EvLgHbPsBtDyAvDKzC@fKkChJ[xEvAnHXvNpCfGtDtP`F~KzCfC~Bt@rCzFbEvDrAt@tCVhDz@h@tGtClJxIhBvBlFvArEvG|F`HfCdAlQFdEs@`Bh@tMsCdMkHpe@yCfPlExO~Blg@lC`HfCjHoCzNiB~CrBtGmBlE_AjEv@fJoC~EDhJsDfKsGnLqDp^hH|QHdTyAjSnAvKjClDxBnDQrWxCtUpF`m@`DpOzAn[_B|J`@vR~C`XiD`eAqCpt@rBhf@eF|d@hFrA{@dDkFbFmFdHWrCsAzEeEfRyGvJsD|El@xNoDfFqB~LUpJvApIGhUiG`Kp@hJVrV`DdJj@dI_@`UeH`JfAlEl@lEk@|I_FjAiCfSoP~F}FbGoJxEoD`EmInH{GhDgUxGgJhLaIxCgGhJ{GtGiCvN_C`Hg@|DyEbEgA~AsD~HwE~@eAk@i@yAe@\\cAdGmCrE_@hT_LvCsDtJeAnGi@jFuB~IoChEFvGsAxBWjC{BdCaCdAlC`FiBnA{DxLmDbAsClDNzEyBfD}DnFkEjAcAv@f@`Bm@xJwDjBsAc@mApAg@dGe@~@qD~BlB~E}BdEmBjEu@hIwInA{Ba@yAbAoBjG_AlFgBj@cCrBCEyCxAs@tFiAjM{AhUfTzKxCpEm@dFnA`Cw@xKlBtTpCx@hBpFzC~Ep@z@rBnArBFnBqAbBRhDtEChIJfF}@nIqCrFhErE]xCaBvA}ChGrCtEu@vIt@zEpElLlJpH}@|D~GzBdEx@nBfBbHhFvJ|ApCrDMrChCp@zGdBnHfEj@nC_AvDPt@sCfBi@hBxArBvGb@f@xBEtBC|@t@fEdCJ`DhDtC~BdAh@|BbBhE_CbBFzAbA`CvBnBbDlC~GfFx@p@nDW~G~@^~BsBkAfC`ClCBb@cAMmA|@z@nGpDjHjH`BfIQ|AuEbHMvAjBTvBeBcBhC_BzAwBfBgCtAc@x@",
+          "distance": "73.3 km",
+          "duration": "2 hours 5 mins"
+        },
+        {
+          "from": "sl3-2",
+          "to": "sl3-3",
+          "polyline": "{lok@}fekNT[L]`@aALQHEf@Bd@?P@RC^SLETSFM",
+          "distance": "0.2 km",
+          "duration": "1 min"
+        },
+        {
+          "from": "sl3-3",
+          "to": "sl3-4",
+          "polyline": "}cok@kmekNDWA[?QF[JORAZAd@WT]fAkBAMh@u@Pa@d@yAf@iAlAgBJe@?KKg@?SDINId@I~@M`@UNSJ_@N[\\]TQn@[XMPQ`@q@VY\\OXEVBNDRPJX@XEZM^Yb@]^]b@_ApAK^AVJVNJf@TLFLPD^EPa@Vc@DKAUKi@s@KGO@KFKNO^Id@GJIHOFcAPOJGHCN@Lb@l@NZ?JIPUPi@Py@`A[`@g@f@k@f@KX@XHj@ARENYTYJSVa@zAUp@WnA@RXb@jApBHZA^Oh@MRKZ?Z@ZFNHRAVMZ[Vk@^_@h@e@vAIPCNM^@^B|CMfAy@xCKTUDuBBkA?EDMB_@FEBO?IKAMBGJa@HYBaAAu@{BHqBHwIVmAFeCBmELUGUUIgBIwACqBKuDG{@GUGAk@@IGGOQiAD}@Fk@DUFGJ?ZBd@Bn@FVCDCOIa@Aa@Km@Sk@m@eBeB@MXe@`@q@",
+          "distance": "4.4 km",
+          "duration": "16 mins"
+        },
+        {
+          "from": "sl3-4",
+          "to": "sl3-5",
+          "polyline": "{rpk@yfekN_A~ADH~@~@`AbAJJ\\J^N~@HBDEBWBUAq@GSAa@CKVGf@Cb@Cb@DTFd@JZDFh@?J?FLD`@HdCDrCj@MxGuAxGuAvFaAzEaA?jBDn@RVBCBAr@F~BZnBR^GBEBE?DARCVFtAP^\\XlAt@tB~@bAj@_@bAc@|AYdAC^@XHNVJRBf@BdB_@XA^@j@PVX@r@AdAFbA?LRDb@Pp@ZNDZFRCLGXQ~@WZOXMLEV@|@DRCLE^UTCRDRJf@`@h@d@NFr@JjAVHD@DBRENWVCP@LXl@PZDBH?BCHk@BIV_@h@m@LUJo@Ge@Ig@Da@Fa@To@HUFKNCTB^Cv@Kb@IP?HFLLZ`@d@ZTTHLDXCx@Bh@LHPBh@QNGr@K^ANEh@_@^a@RKNAl@Cf@Il@Ct@?|AAbBHv@E~@Yf@QF?JDATAH?FFFHDt@b@bCl@XD`@@NHJLHTXJf@@RENMJUH[HUXS\\YRw@@aB@}@Pe@HWBYAi@E_AMo@G]Ko@DSJIR@JFXZd@b@`@HXE~@m@v@w@j@s@^Qb@CNFDNA\\Oz@Qh@Wp@MTEXFPRPPPZZLZDb@?b@Ab@Eb@Ib@Bd@RLTBTB\\Pl@j@b@Zj@Rb@FRGJKLc@NKXA^AXGNENIZCl@Ff@ZNPBJCX?HDHTR^Vr@v@zAh@rB~@TFiBeC@Wj@k@\\zAd@@PSAM",
+          "distance": "6.2 km",
+          "duration": "23 mins"
+        },
+        {
+          "from": "sl3-5",
+          "to": "sl3-6",
+          "polyline": "csjk@wpckN@LQRe@AAG[sAk@f@AZhBdCG@m@[}As@cA[[Uy@y@WQOSBc@OYGEWSYIMAa@ASFKFWHYBa@?WDGRCJOTIFW@c@Ma@Om@a@WY[Uo@KQGIKCc@Lo@BcAAs@EU]a@MOSOSUAWFMTe@Tq@Pu@Jw@AIEIOGE?Y@IBWLKJq@x@y@v@e@VUH_@A]Qa@e@SSKCQ@IHC\\Z|AHp@@~@Ad@Sh@GRA^@n@An@Gp@EPGRKJOJWNKNGXIXKPUJM?[?WGMMKWKISAo@IsCu@w@i@D_@IKEA}@Xe@LYFs@@oBIeBBq@A_@Fs@HS?YDYZk@d@QHkAJo@RMD[DKEGGCS@m@?o@CMSYa@W][MSWSa@Ba@Fy@Lg@CQFc@lAMdAFb@DJBZEZO`@}@hAINETG\\E@GAOMMa@S]?M@C@KROFS@KEO[OuB_@aAy@a@YSGSAOD_@TWFM?cAGQ@QH_@PmA^]TODUAq@Uq@Ye@OCi@CsA@i@A[EOCEYQ[KSA]?YF{A\\a@DY?WACHCN?T|@rB\\b@PVFNBVwAEqAEKG]QiCgAyBgAyAu@U^k@p@_@h@[`@[VYc@QGWU_Bk@_Bo@_AOc@@_@Cc@QSSMGEKUOUGcBMmAGWBk@V_@FqA?e@EMIUKFRSl@GX?PFp@@LCVD\\_@h@iArBq@vA[`@]XgApAETIl@]nBIfA?|@T|@f@vADVd@r@Hl@Ct@?^CPIPOJe@LIJCL@l@JTPHZJJJ?XERIJe@Jc@JSHi@Ge@GcAEY?c@Cm@Ea@KeAa@s@e@OQUIm@?W@yBNk@Ve@B[Ca@OyEuCQOQIKAM@g@Tc@F]Bo@F{@AQAUD]PWHITQLLJ\\|@TTJBnAb@h@XTBb@CN?\\FpAb@lAVRBNDFHVj@PT~@KT`@FXGfAQh@GNDNP`A`@v@h@n@DLAV?RJNJBXAXK\\A\\JLNL^?^GV[d@UOQA]TY?gBa@{C]q@ISMGS@MFINCXAh@Ij@UNIBIBS?i@C}@CMWG[Ba@Jc@Le@TUFQ?MCKGOQo@k@WIQDIBSLY^OVEDJRBR\\H",
+          "distance": "8.9 km",
+          "duration": "29 mins"
         }
       ]
     },
@@ -256,11 +479,19 @@
           "title": "Drive to Ambewala Station",
           "description": "2-hour drive from Kandy to Ambewala railway station to catch the famous hill-country train.",
           "location": "Kandy → Ambewala",
-          "coordinates": { "lat": 6.8771, "lng": 80.8146 },
+          "coordinates": {
+            "lat": 6.8771,
+            "lng": 80.8146
+          },
           "category": "transport",
           "duration": "2h",
           "tips": "Private driver in the morning only.",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Ambewela+Railway+Station/@6.8771336,80.8146143" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Ambewela+Railway+Station/@6.8771336,80.8146143"
+            }
+          ]
         },
         {
           "id": "sl4-2",
@@ -268,10 +499,19 @@
           "title": "Train: Ambewala → Ella",
           "description": "One of the most beautiful train rides in the world. The train winds through lush green tea plantations, crosses the iconic Nine Arches Bridge, and passes through misty mountain tunnels.",
           "location": "Sri Lanka Railways — Hill Country Line",
-          "coordinates": { "lat": 6.8757, "lng": 81.0471 },
+          "coordinates": {
+            "lat": 6.8757,
+            "lng": 81.0471
+          },
           "category": "transport",
           "duration": "2h30m",
-          "tips": "Sit on the right side for the best views. Hang out by the open doors for the full experience (carefully!). Book 2nd class for open windows."
+          "tips": "Sit on the right side for the best views. Hang out by the open doors for the full experience (carefully!). Book 2nd class for open windows.",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Ambewela,+Sri+Lanka/@6.8791468,80.81065,17z"
+            }
+          ]
         },
         {
           "id": "sl4-3",
@@ -279,9 +519,17 @@
           "title": "Arrive in Ella",
           "description": "Welcome to Ella — a small, laid-back mountain town surrounded by tea plantations and waterfalls.",
           "location": "Ella Railway Station",
-          "coordinates": { "lat": 6.8757, "lng": 81.0471 },
+          "coordinates": {
+            "lat": 6.8757,
+            "lng": 81.0471
+          },
           "category": "transport",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Railway+Station+-+Ella/@6.8756976,81.0470817" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Railway+Station+-+Ella/@6.8756976,81.0470817"
+            }
+          ]
         },
         {
           "id": "sl4-4",
@@ -290,9 +538,17 @@
           "description": "Settle in for a 2-night stay in Ella.",
           "location": "La Casa Bella, Ella",
           "address": "Ella - Passara Road, Ella 90090",
-          "coordinates": { "lat": 6.8723, "lng": 81.0523 },
+          "coordinates": {
+            "lat": 6.8723,
+            "lng": 81.0523
+          },
           "category": "hotel",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/La+Casa+bElla/@6.8723295,81.052315" }],
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/La+Casa+bElla/@6.8723295,81.052315"
+            }
+          ],
           "tips": "Free cancellation until Feb 15."
         },
         {
@@ -301,10 +557,41 @@
           "title": "Explore Ella Town",
           "description": "Walk around Ella's charming main street. Grab a coffee, browse the shops, and enjoy the mountain views.",
           "location": "Ella Town",
-          "coordinates": { "lat": 6.8731, "lng": 81.0491 },
+          "coordinates": {
+            "lat": 6.8731,
+            "lng": 81.0491
+          },
           "category": "activity",
           "tips": "Check out Cafe Chill, Cafe One Love, or Cafe UFO.",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Ella,+Sri+Lanka/@6.8731332,81.0491074" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Ella,+Sri+Lanka/@6.8731332,81.0491074"
+            }
+          ]
+        }
+      ],
+      "drivingRoutes": [
+        {
+          "from": "sl4-1",
+          "to": "sl4-2",
+          "polyline": "id~h@yaglNeE|DiA_C_H[wCpFEoGcDi@p@yAcA_DkCeD_X}GmBvA}@yB{G}BT}EkEaEaFsCgDByIiCaDmBwFj@OrAsFaBcDuCoCNeFXkBgCkA`@wAdDkBeLaBoIiLhBgDkCZvDgCDeAaAa@cJrCwGtFyDR_DuB{Ap@wBvCYh@{BoGLmEjBkDb@sCaD}AxAcE|B_Fi@kDQyFrAqEpAqBmAsDt@qHTmHxCiEZkE{DyCfDsHHsC_BoBVbAaDdBoOc@_DqBbAoCbIkBhCq@_EoD_HeJpGmAOzA{DjDqG`GgBSyKgAqA`BmCvEmKNqJSaF_Cy@i@`BmCSaCrEwD_@kDd@nCmCxCWv@eG`C{AlGuNxDyKyCkH[yFhHsRjCqGgAwBh@k@B}@}DcAYqFaGm@q@iJ|AyAeBwIoDaGiB}GoEeBjGcDpDwHvIkM~B}HnEo@pHgGy@mDc@kBzBcA~BqBjE}BbB}CwFgDeIoQiCgK{HkHcEwHaAgJjDgG_AoFiFeEaHkB]wFZmEWmB|DKxBmA|@cE@mCd@i@rD@`EcFzHwAdDeCbEm@|@eGxIkM~GaCF{HzCkCjI|HlIxCxLbApAmB{@uF`RkObCmHvE_Cy@mBkHmCsBy@p@iDXcC{@kEF_L}F_GiKyJr@aGbJ}@vE{Ba@mCuQeQoHkOr@wF_Da@eCKzAkBbDgDJiDvAmG`IkDdC~A~KpBbEyChGk@fBcI`AeDtG{BnFlBdOlA|q@nFjRkKzEuGnD@`TeCrC{ExIs@fH^hFbEvH{HpVaDxFBXuFhEm@fBkB`BcB`@yD}I_JeGgGgEo@gBaDpEkC|JR_FoF~@{CjK_AhFlDDwEmBqCdIqKpFeDfAgCPeF|HiEtCy@wA{CcBsB`D~AvLc@n@_LjEaExII?{@qDUiAqDwFM^wBdEmCdHTfJ_H|C~BrDaAbGfF^nBdEZW_KrHwE`AaFrDkD`HkDvCP|CaCrDaCtAJrELrFaCrEcH}@eEnAuApCFpEwCmBgDNiC`JkV|GPd@mCdHiCgLqDyAyC|@gDgDd@wGGyCuF~BeBhKAtDqBhAqFxC}Cm@wBh@wCqC}BoB{HsDqTcBwMsJ}E}AkGmJ_DaNcN|AcDwByGyD{G_D{AiEiHS}AiGxAsL`@lFqDyBsIsZmMwGiVaN_JaIiDeMkCoIwDiI}@sBiEmEyAiMe@cHw@y@gEiRsTgDuCmEq@{GgG_@wC|HbBOkFyAmGeCQeGoFfGsA`BuDoAuBxE_JrDmDJ}BYaL`CuF_BwAsGoB",
+          "distance": "56.6 km",
+          "duration": "2 hours 4 mins"
+        },
+        {
+          "from": "sl4-3",
+          "to": "sl4-4",
+          "polyline": "e|}h@aqtmNg@SHMdAXdA\\d@RbB~@VDB?GMM[Ok@AQHg@HY@c@A}@DWBOVi@ZWl@]|@WrBc@ESDs@Fa@?ALyAPyBCeAMo@CK^Or@WNI@GGMm@o@f@m@",
+          "distance": "1.0 km",
+          "duration": "4 mins"
+        },
+        {
+          "from": "sl4-4",
+          "to": "sl4-5",
+          "polyline": "}g}h@ioumNg@l@BBn@r@@LeBp@Pp@Bj@?b@It@Er@OjBMjAD\\SD",
+          "distance": "0.4 km",
+          "duration": "2 mins"
         }
       ]
     },
@@ -318,7 +605,10 @@
           "title": "Tea Estate Visit",
           "description": "Visit a working tea estate and factory. See how Ceylon tea is picked, processed, and graded. Includes a tasting session.",
           "location": "Ella Tea Estate",
-          "coordinates": { "lat": 6.8600, "lng": 81.0350 },
+          "coordinates": {
+            "lat": 6.86,
+            "lng": 81.035
+          },
           "category": "activity",
           "duration": "2h"
         },
@@ -329,11 +619,19 @@
           "description": "Walk to the iconic Nine Arches Bridge — a colonial-era stone viaduct set among jungle and tea fields. Watch the train cross if your timing is right.",
           "location": "Nine Arches Bridge",
           "address": "Gotuwala, Ella",
-          "coordinates": { "lat": 6.8768, "lng": 81.0608 },
+          "coordinates": {
+            "lat": 6.8768,
+            "lng": 81.0608
+          },
           "category": "sight",
           "duration": "1h",
           "tips": "Trains cross around 9:15am, 11:00am, and 3:30pm — check the schedule.",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Nine+Arches+Bridge/@6.8768151,81.0608465" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Nine+Arches+Bridge/@6.8768151,81.0608465"
+            }
+          ]
         },
         {
           "id": "sl5-3",
@@ -341,11 +639,19 @@
           "title": "Lunch in Ella",
           "description": "Plenty of great cafes and restaurants in town. Try a kottu roti or a Sri Lankan curry.",
           "location": "Ella Town",
-          "coordinates": { "lat": 6.8731, "lng": 81.0491 },
+          "coordinates": {
+            "lat": 6.8731,
+            "lng": 81.0491
+          },
           "category": "food",
           "tips": "Cafe Chill, Cafe One Love, and Cafe UFO are all great options.",
           "duration": "1h",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Ella,+Sri+Lanka/@6.8731332,81.0491074" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Ella,+Sri+Lanka/@6.8731332,81.0491074"
+            }
+          ]
         },
         {
           "id": "sl5-4",
@@ -353,10 +659,18 @@
           "title": "Little Adam's Peak",
           "description": "Easy 45-minute hike to panoramic views of Ella Gap and the surrounding tea country. One of the best viewpoints in the area.",
           "location": "Little Adam's Peak",
-          "coordinates": { "lat": 6.8651, "lng": 81.0631 },
+          "coordinates": {
+            "lat": 6.8651,
+            "lng": 81.0631
+          },
           "category": "sight",
           "duration": "2h",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Little+Adam's+Peak/@6.8651291,81.063078" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Little+Adam's+Peak/@6.8651291,81.063078"
+            }
+          ]
         },
         {
           "id": "sl5-5",
@@ -364,10 +678,48 @@
           "title": "Kuda Ravana Ella Waterfall",
           "description": "One of Sri Lanka's widest waterfalls, just a short tuk-tuk ride from Ella center.",
           "location": "Kuda Ravana Ella Waterfall",
-          "coordinates": { "lat": 6.8662, "lng": 81.0446 },
+          "coordinates": {
+            "lat": 6.8662,
+            "lng": 81.0446
+          },
           "category": "sight",
           "duration": "30m",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Kuda+Ravana+Ella+Waterfall/@6.8662092,81.0445561" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Kuda+Ravana+Ella+Waterfall/@6.8662092,81.0445561"
+            }
+          ]
+        }
+      ],
+      "drivingRoutes": [
+        {
+          "from": "sl5-1",
+          "to": "sl5-2",
+          "polyline": "izzh@kermNoA@]Go@Yu@UIBa@HUJWXQbAKdAGLSBm@Ca@Ek@WSGMFQPUCKKGSGMMKg@Mi@KUIa@_@SUc@U_@MWMMKa@c@KEUAc@@SEuASOAQD]NFmA]IYQUQMUASDONaAAKGWS_@U]}@g@u@sAMQEOGg@O]U[]]oAOcB_@KICK?_@GOu@eAQW]WuAu@k@Ck@@[IIO?c@Ga@OQq@[WUGYNm@D_@KmAMYYM{Bm@wAa@]W[_@IQ?[Pa@?QAO[o@W_@UWEICQ?g@EOEEQAUFWL{@x@YZENAf@?n@K`@Kn@E\\E@ICEu@Bc@FYGy@?[Iu@AUFQVW\\k@FUEEGAKFa@`@g@Hc@HQFk@ZSHI?EECI@O\\{@Pm@Lo@?YCCIAKLO^IHS@|@qBQKSYQO[O_@M[Uw@q@YMe@?oBVWFKJ_@b@o@L_@Fe@AKCa@QI_@Sm@Q}@D}@Mu@IEQ@i@V_@JYDa@Co@Qo@ESCMIQOSGq@@IGGKKSE_@I_@GQKEUFWNk@t@Wd@GFSLe@Vg@X[ZSTSHy@B_@FOPG\\BTBXALAFI@GCQc@KQSQ_@QMKa@k@MGSEKIEI?IEOIMIMCIHq@AMEIS?m@BUIESXcADyAAQEKMa@?OFSRSnA]BCDO?MEK[Qq@k@KUKSEQ?Gh@k@HIAIKKc@WOQQ]ISGIu@a@a@UIOMQIOAGBQVYDO@W@WIk@CYG]KGMA{@Pa@?g@A@C@IBGNYj@u@FKLe@DQPSNIZe@Ji@Je@Ak@CkAEOS[YW@IF?t@d@NPFDH?HCXIJCR@THXDRARJ`@ZLHb@P`@TXPF@LBLOBWLi@@[GUCSS[AICOFw@Tq@N]NOJGHANBl@Rf@Jd@FZA\\GN?HHd@\\TJH?HCDKC_@Yg@EQF[BMCQEW?MDKXU`@I`@CXMHIDKCYAOBSLSd@YZKP?PI@IC_@G_@w@c@]O[Ke@?GKDSBIJKbA_AJM?MISMMOE]?GI?OBKb@w@@UCSGEMGK?o@Vu@Nc@Be@FCAEGAGDM~Aq@^SFI?MFWFGF?PAREJCBGH]JIl@?XBRHTRLPJVPHL@\\HFDBLDNNVFDNBZLFFFFJAj@?d@N",
+          "distance": "7.6 km",
+          "duration": "27 mins"
+        },
+        {
+          "from": "sl5-2",
+          "to": "sl5-3",
+          "polyline": "ag~h@wbwmNa@MIAi@?I?GIUKSGICMKOg@EIKE]EMEIEEMMSOQUOICi@Ca@?ILIZCDKBSFQ?G@INE^IFg@XaA^SJCLHND@f@Kh@Cn@On@WLBHFFL?NCTc@t@CN@HLF`@BVTDTCJUV{@t@KPAT@DFBVAP@VJd@Rd@XFHHp@?LEFc@F]LQHQNKV?T@JBLCJSP]Li@DUJWTAXFZ?LETCPHRVh@@PALGDI@QCOKKEY[MCE@e@Fg@Cg@Ga@Ke@QM?KDWVWt@Mf@CX@TBJR^Jl@C\\Kd@ALELMHKEMCYSQKWIYOMKc@YOG[?o@OWDc@JICGEMOu@c@G@@JJFVZJRBf@@x@?b@Mp@M`@[^SLOb@Mb@GHo@|@MTCNrA?r@ON@HLD^Fb@Db@AXETEJUXALBHZf@LJlAp@Vd@NZPPd@VDFAHMN_@^CF?FTf@JRt@l@TLBL?NGHMHiAZQVCP@LL`@DLANAb@Cx@Ul@AR@HFFTDr@EJBBH@RIj@PXDJBD?JHPJHRBPJZf@RNb@TLNHNN^HBFABKEi@?WDUJMLG`@Cb@APENIRUJMd@Wd@WPORKJON[RURYPOTMP@DDH\\Jp@NXFJJB^CP@PHPNHDXBX@ZHj@Ln@AFCZI\\QVGJ@DLFRBVA^C\\DXTz@Nb@BPXNLBL@R@TA`@G`@Mb@e@LInC_@Z@\\Tp@j@ZRj@TVNZ`@PJ`@m@LYBI@KEO_@Wg@[c@{@Sm@CWFe@H[B_@Ay@B_@J_@Zg@j@a@^MpCq@",
+          "distance": "5.1 km",
+          "duration": "18 mins"
+        },
+        {
+          "from": "sl5-3",
+          "to": "sl5-4",
+          "polyline": "{k}h@{{tmNREESDs@Fa@NkBHeADgACa@G]Mg@i@aAk@w@SOQQCQBY?WE]GWOUe@c@CEACCI@KFMXa@Tc@\\cBx@yCLu@FSLMVCt@PHCFEDMCUSw@E_@D[HSTUBCRMj@QvAQ~@CdACTKd@QVMRELKVSVCVBLDRJHXJTJBZA`@BLE@MC[@IJUd@SHI?IEQMQGK?O@Y@OJKJGDK?CMWAMRSXWIIS?MCQMYWOKEMCMDw@Pc@EWOYAYNg@La@@a@_@oA`@BPDl@H^?n@Eb@Kh@[TGR@Z?NCPOx@{@ZWLGv@OXG^Sb@q@\\a@DG`@Mh@y@NULAEOZMROCYBg@?g@NCR`@ZK",
+          "distance": "2.5 km",
+          "duration": "12 mins"
+        },
+        {
+          "from": "sl5-4",
+          "to": "sl5-5",
+          "polyline": "gz{h@ctwmN[JSa@OB?f@Cf@BXSN[LDNM@OTi@x@a@LEF]`@c@p@_@RYFw@NMF[Vy@z@QNOB[?SAUFi@Zc@Jo@D_@?m@IQEa@C^nAA`@M`@Of@@XNXDVQb@Ev@BLDLNJXVPLLBJAF@HHYVSR@LLZEJKFKJANAX?NFJLPDP?HIHe@RKTAHBZALMDa@C[@KCKUIYSKMEWCWBWRMJSDWLe@PUJeAB_ABwAPk@PWPUTIREZD^Rv@BTELGDIBu@QWBMLGRMt@y@xC]bBUb@Y`@GL@TDHd@b@NTFVD\\?VCXBPPPRNj@v@h@`ALf@F\\B`@EfAIdAOjBG`@Er@DRZGDTBJBLLTf@`@\\RNL^h@HDTFNHDH?H[x@Or@Wf@ENAJBb@?PKVOXMNs@ZOVAJDh@DZAHDFL?~@Ux@Qn@Cf@Fr@@NFf@b@VXJPNZHd@PrAH\\FFd@Dp@d@TFJHL\\`@h@\\h@VVNF\\C\\YVKb@KfAs@TOPANDFP?X~@c@~@g@",
+          "distance": "3.8 km",
+          "duration": "19 mins"
         }
       ]
     },
@@ -381,10 +733,19 @@
           "title": "Transfer to Galle",
           "description": "Long but scenic 5-hour drive south from the hill country to the coast. The landscape changes dramatically from mountains to tropical coast.",
           "location": "Ella → Galle",
-          "coordinates": { "lat": 6.0271, "lng": 80.2171 },
+          "coordinates": {
+            "lat": 6.0271,
+            "lng": 80.2171
+          },
           "category": "transport",
           "duration": "5h",
-          "tips": "Private driver all day."
+          "tips": "Private driver all day.",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Galle,+Sri+Lanka/@6.05589,80.1707115,13z"
+            }
+          ]
         },
         {
           "id": "sl6-2",
@@ -393,9 +754,17 @@
           "description": "Boutique hotel inside the historic Galle Fort walls.",
           "location": "The Fort House, Galle",
           "address": "72 Church Street, Galle 80000",
-          "coordinates": { "lat": 6.0250, "lng": 80.2180 },
+          "coordinates": {
+            "lat": 6.025,
+            "lng": 80.218
+          },
           "category": "hotel",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/2.+The+Fort+House/@6.02497,80.2180136" }],
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/2.+The+Fort+House/@6.02497,80.2180136"
+            }
+          ],
           "tips": "Free cancellation until Feb 11."
         },
         {
@@ -404,10 +773,18 @@
           "title": "Galle Fort Rampart Walk",
           "description": "Walk along the 400-year-old Dutch colonial fort walls. Beautiful views of the ocean on both sides, especially at sunset.",
           "location": "Galle Dutch Fort",
-          "coordinates": { "lat": 6.0305, "lng": 80.2150 },
+          "coordinates": {
+            "lat": 6.0305,
+            "lng": 80.215
+          },
           "category": "sight",
           "duration": "1h",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Galle+Dutch+Fort/@6.0304592,80.2150207" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Galle+Dutch+Fort/@6.0304592,80.2150207"
+            }
+          ]
         },
         {
           "id": "sl6-4",
@@ -416,10 +793,18 @@
           "description": "One of the oldest Protestant churches in Sri Lanka, dating back to 1755. Beautiful colonial architecture.",
           "location": "Dutch Reformed Church",
           "address": "Church Street, Galle Fort",
-          "coordinates": { "lat": 6.0282, "lng": 80.2171 },
+          "coordinates": {
+            "lat": 6.0282,
+            "lng": 80.2171
+          },
           "category": "sight",
           "duration": "30m",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Dutch+Reformed+Church/@6.0282011,80.2171085" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Dutch+Reformed+Church/@6.0282011,80.2171085"
+            }
+          ]
         },
         {
           "id": "sl6-5",
@@ -427,10 +812,18 @@
           "title": "Explore Galle Fort Streets",
           "description": "Wander through the charming streets inside the fort. Art galleries, boutique shops, cafes, and colonial architecture everywhere.",
           "location": "Galle Dutch Fort",
-          "coordinates": { "lat": 6.0305, "lng": 80.2150 },
+          "coordinates": {
+            "lat": 6.0305,
+            "lng": 80.215
+          },
           "category": "activity",
           "duration": "1h30m",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Galle+Dutch+Fort/@6.0304592,80.2150207" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Galle+Dutch+Fort/@6.0304592,80.2150207"
+            }
+          ]
         },
         {
           "id": "sl6-6",
@@ -438,10 +831,55 @@
           "title": "Sunset & Dinner at the Fort",
           "description": "Watch the sunset from the ramparts, then find a restaurant inside the fort for dinner.",
           "location": "Galle Fort",
-          "coordinates": { "lat": 6.0245, "lng": 80.2194 },
+          "coordinates": {
+            "lat": 6.0245,
+            "lng": 80.2194
+          },
           "category": "food",
           "tips": "Try Fort Bazaar, Isle of Gelato, or Pedlar's Inn Cafe.",
-          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/N5pHnb5QJ3c7jNJe7" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://maps.app.goo.gl/N5pHnb5QJ3c7jNJe7"
+            }
+          ]
+        }
+      ],
+      "drivingRoutes": [
+        {
+          "from": "sl6-1",
+          "to": "sl6-2",
+          "polyline": "icxc@elrhN^zAxAWjFeAUwAKqAz@I",
+          "distance": "0.4 km",
+          "duration": "2 mins"
+        },
+        {
+          "from": "sl6-2",
+          "to": "sl6-3",
+          "polyline": "iwwc@{qrhNcAJcD`@}ALuAJ}BXs@R{DjAeA\\_@ZU^ETEv@FBDLGLE@IAEG?Cc@By@DY@k@D?BABCHQFEAOz@Ut@KT",
+          "distance": "0.8 km",
+          "duration": "4 mins"
+        },
+        {
+          "from": "sl6-3",
+          "to": "sl6-4",
+          "polyline": "_|xc@k`rhNJUTu@N{@C?CACCCGAIHQRCLJ@B@Bj@CrAGb@C?EBGFEB?@_@Fg@HU\\_@p@]t@Q~@YXn@",
+          "distance": "0.5 km",
+          "duration": "2 mins"
+        },
+        {
+          "from": "sl6-4",
+          "to": "sl6-5",
+          "polyline": "glxc@ikrhNYo@_AXu@Pq@\\]^ITGf@A^B@DBBNKJE?GECGgAD{AJ?BCHOJE?A?GXWfAMZEF",
+          "distance": "0.4 km",
+          "duration": "2 mins"
+        },
+        {
+          "from": "sl6-5",
+          "to": "sl6-6",
+          "polyline": "_|xc@k`rhNJUTu@N{@C?CACCCGAIHQHCUaAQi@Ya@MGMACGBIDC@?@?B?BB@@FCHERCpB?d@CdAQ~Aa@~@e@d@c@b@i@Rc@Le@FMt@M?SK_AEa@BMLMPGbCg@~E?zCDbBR^FFD",
+          "distance": "1.1 km",
+          "duration": "4 mins"
         }
       ]
     },
@@ -455,9 +893,18 @@
           "title": "Breakfast at the Fort",
           "description": "Lazy morning breakfast at the hotel or a nearby cafe inside Galle Fort.",
           "location": "Galle Fort",
-          "coordinates": { "lat": 6.0270, "lng": 80.2171 },
+          "coordinates": {
+            "lat": 6.027,
+            "lng": 80.2171
+          },
           "category": "food",
-          "tips": "Pedlar's Inn Cafe is a great breakfast spot."
+          "tips": "Pedlar's Inn Cafe is a great breakfast spot.",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/KiXi+Fort+Galle/@6.0305271,80.2123512,16.96z"
+            }
+          ]
         },
         {
           "id": "sl7-2",
@@ -465,11 +912,19 @@
           "title": "Beach Day — Unawatuna or Jungle Beach",
           "description": "Head to nearby Unawatuna Beach (10 min drive) or the hidden Jungle Beach for a full day of sun, swimming, and relaxation.",
           "location": "Unawatuna Beach",
-          "coordinates": { "lat": 6.0097, "lng": 80.2484 },
+          "coordinates": {
+            "lat": 6.0097,
+            "lng": 80.2484
+          },
           "category": "activity",
           "duration": "Full day",
           "tips": "Jungle Beach is smaller but more secluded — great for snorkeling.",
-          "links": [{ "label": "Google Maps", "url": "https://www.google.com/maps/place/Unawatuna+Beach/@6.0096861,80.248424" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/place/Unawatuna+Beach/@6.0096861,80.248424"
+            }
+          ]
         },
         {
           "id": "sl7-3",
@@ -477,7 +932,10 @@
           "title": "Beachside Lunch",
           "description": "Fresh seafood and cold drinks with your feet in the sand.",
           "location": "Unawatuna Beach",
-          "coordinates": { "lat": 6.0097, "lng": 80.2484 },
+          "coordinates": {
+            "lat": 6.0097,
+            "lng": 80.2484
+          },
           "category": "food",
           "duration": "1h"
         },
@@ -487,9 +945,33 @@
           "title": "Last Evening in Galle",
           "description": "Final sunset from the fort ramparts. Soak it all in.",
           "location": "Galle Fort",
-          "coordinates": { "lat": 6.0245, "lng": 80.2194 },
+          "coordinates": {
+            "lat": 6.0245,
+            "lng": 80.2194
+          },
           "category": "activity",
-          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/N5pHnb5QJ3c7jNJe7" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://maps.app.goo.gl/N5pHnb5QJ3c7jNJe7"
+            }
+          ]
+        }
+      ],
+      "drivingRoutes": [
+        {
+          "from": "sl7-1",
+          "to": "sl7-2",
+          "polyline": "gcxc@alrhN\\vAyE|@c@JmBJ_ABuAHQEKBENKFIAEG?Cc@By@DeAF?DCHQHKAGEEQHQHCUaAQi@Ya@MGMACG@EIAQG_@KyBa@a@?c@HA@GFO@KICG?C?COIiAcAw@cAaCmC{B{CyAuBcB}CmAmCmAcD}AsFSgAUiBKgACq@EaGMu@Y]g@UMKEIDe@Hk@`@oCz@wCv@uB`@aAj@_AzA{C~@qBv@oBTw@Nu@NmAPiAl@iB`BaEh@cBZmAx@iH\\cCLg@Pc@l@gAr@}@`AcAl@i@hBaBlB}AXYj@g@jDqCbA_An@y@|AwB`@g@VQhBkAn@_@rB_AlAu@lAsA|@iApCcCnCkCd@a@\\QbAU~HuArBc@tB_@lHqAdGeAhDo@pDk@~A]bAOfHsAf@IDh@FZJZR@j@?^Bj@NZN\\Xz@nA`@LhBFl@@VEr@Ot@CZBTl@JBZBXBFMBErAODCA]",
+          "distance": "6.6 km",
+          "duration": "19 mins"
+        },
+        {
+          "from": "sl7-3",
+          "to": "sl7-4",
+          "polyline": "gztc@unxhN@\\EBsANCDGLYC[CKCM]GO[Cu@Bs@NWDm@AiAE_@Aa@M{@oA]Y[Ok@O_@Ck@?SAK[G[Ei@g@HgHrAcAN_B\\qDj@iDn@eGdAmHpAuB^sBb@gEr@wB`@cAT]Pe@`@oCjCqCbC}@hAmArAmAt@cB|@MJyB|AaAbAkA`BwA~AyBnB_CdBm@Ve@`@gCtBkAdAeA`Am@r@i@t@k@fA_@pAg@nEa@pDOr@c@zAu@rB}A|DYdAMx@UfBQt@Qf@oA~CmA`CeApBc@x@m@xA{@hC]nAW|AOlAAVDTPN`@\\LRHZF\\DnABxEDn@PbBXhBNl@z@zC~@rC`A~B|AdDtAzBbCfDr@~@rB`CZ\\^b@d@d@pAb@B?FBB@b@Bf@JxCl@PFH@@CDC@?@?D@BBFCHERCpB?d@CdAQ~Aa@~@e@d@c@b@i@Rc@Le@FMt@M?SK_AEa@BMLMPGbCg@~E?zCDbBR^FFD",
+          "distance": "6.7 km",
+          "duration": "19 mins"
         }
       ]
     },
@@ -503,7 +985,10 @@
           "title": "Transfer to Colombo Airport",
           "description": "3-hour drive north along the coastal expressway from Galle to CMB airport.",
           "location": "Galle → CMB Airport",
-          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "coordinates": {
+            "lat": 7.1808,
+            "lng": 79.8841
+          },
           "category": "transport",
           "duration": "3h",
           "tips": "Private driver. Flight at 16:20 — leave with plenty of buffer."
@@ -514,10 +999,18 @@
           "title": "Arrive at Airport",
           "description": "Last-minute shopping at the duty-free. Pick up Ceylon tea, spices, and gems as souvenirs.",
           "location": "Bandaranaike International Airport (CMB)",
-          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "coordinates": {
+            "lat": 7.1808,
+            "lng": 79.8841
+          },
           "category": "transport",
           "tips": "Grab a last Sri Lankan meal at the airport before departure.",
-          "links": [{ "label": "Google Maps", "url": "https://maps.app.goo.gl/TaK7N6NkXcnJxJ5D6" }]
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://maps.app.goo.gl/TaK7N6NkXcnJxJ5D6"
+            }
+          ]
         },
         {
           "id": "sl8-3",
@@ -525,7 +1018,10 @@
           "title": "Flight JD488 — Colombo to Beijing",
           "description": "Julian's return flight. Departs CMB at 16:20, lands at Beijing Daxing (PKX) at 01:55+1 the next day.",
           "location": "Bandaranaike International Airport (CMB)",
-          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "coordinates": {
+            "lat": 7.1808,
+            "lng": 79.8841
+          },
           "category": "transport",
           "routeGroup": "julian"
         },
@@ -535,12 +1031,16 @@
           "title": "Julian lands at Beijing (PKX) — Next Day",
           "description": "Arrive back in Beijing early morning on Feb 22.",
           "location": "Beijing Daxing International Airport (PKX)",
-          "coordinates": { "lat": 39.5098, "lng": 116.4105 },
+          "coordinates": {
+            "lat": 39.5098,
+            "lng": 116.4105
+          },
           "category": "transport",
           "routeGroup": "julian",
           "tips": "Book an airport hotel if you need rest before heading home."
         }
-      ]
+      ],
+      "drivingRoutes": []
     },
     {
       "date": "2026-02-22",
@@ -552,7 +1052,10 @@
           "title": "Flight CX612 — Colombo to Hong Kong",
           "description": "Cathay Pacific CX612. Red-eye departure from Colombo.",
           "location": "Bandaranaike International Airport (CMB)",
-          "coordinates": { "lat": 7.1808, "lng": 79.8841 },
+          "coordinates": {
+            "lat": 7.1808,
+            "lng": 79.8841
+          },
           "category": "transport",
           "routeGroup": "ryvn"
         },
@@ -562,7 +1065,10 @@
           "title": "Arrive Hong Kong — Layover",
           "description": "7-hour layover at Hong Kong International Airport. Hit the Cathay Pacific lounge for breakfast and rest.",
           "location": "Hong Kong International Airport (HKG)",
-          "coordinates": { "lat": 22.3080, "lng": 113.9185 },
+          "coordinates": {
+            "lat": 22.308,
+            "lng": 113.9185
+          },
           "category": "transport",
           "routeGroup": "ryvn",
           "duration": "7h05m"
@@ -573,7 +1079,10 @@
           "title": "Flight CX488 — Hong Kong to Taipei",
           "description": "Cathay Pacific CX488. Final leg home.",
           "location": "Hong Kong International Airport (HKG)",
-          "coordinates": { "lat": 22.3080, "lng": 113.9185 },
+          "coordinates": {
+            "lat": 22.308,
+            "lng": 113.9185
+          },
           "category": "transport",
           "routeGroup": "ryvn"
         },
@@ -583,11 +1092,15 @@
           "title": "Land at Taipei (TPE)",
           "description": "Arrive back in Taipei. Trip complete!",
           "location": "Taiwan Taoyuan International Airport (TPE)",
-          "coordinates": { "lat": 25.0797, "lng": 121.2342 },
+          "coordinates": {
+            "lat": 25.0797,
+            "lng": 121.2342
+          },
           "category": "transport",
           "routeGroup": "ryvn"
         }
-      ]
+      ],
+      "drivingRoutes": []
     }
   ],
   "guides": {

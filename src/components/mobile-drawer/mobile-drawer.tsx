@@ -100,6 +100,7 @@ export function MobileDrawer({
     >
       <DrawerPrimitive.Portal>
         <DrawerPrimitive.Content
+          onOpenAutoFocus={(e) => e.preventDefault()}
           className="drawer-glass fixed inset-x-0 bottom-0 z-50 flex h-full max-h-[92vh] flex-col rounded-t-2xl border-t border-border/30 outline-none lg:!hidden"
         >
           <DrawerPrimitive.Title className="sr-only">Itinerary</DrawerPrimitive.Title>
@@ -138,13 +139,11 @@ export function MobileDrawer({
 
               {/* Route filter (if trip has route groups) */}
               {trip.routeGroups && trip.routeGroups.length > 0 && (
-                <div className="border-y border-border/30">
-                  <RouteFilter
-                    routeGroups={trip.routeGroups}
-                    activeRoutes={activeRoutes}
-                    onToggleRoute={onToggleRoute}
-                  />
-                </div>
+                <RouteFilter
+                  routeGroups={trip.routeGroups}
+                  activeRoutes={activeRoutes}
+                  onToggleRoute={onToggleRoute}
+                />
               )}
 
               {/* Scrollable activity list */}

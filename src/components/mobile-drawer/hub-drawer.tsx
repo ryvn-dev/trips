@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import type { Trip } from "@/types/trip";
 import type { LucideIcon } from "lucide-react";
+import CountUp from "@/components/ui/count-up";
 
 export type MobileView = "hub" | "itinerary" | "preparation" | "culture";
 
@@ -56,9 +57,13 @@ function HubStats({ trip }: { trip: Trip }) {
           key={stat.label}
           className="flex flex-col items-center rounded-lg py-3"
         >
-          <span className="text-2xl font-mono font-bold tabular-nums leading-none text-ink">
-            {stat.value}
-          </span>
+          <CountUp
+            from={0}
+            to={stat.value}
+            direction="up"
+            duration={1}
+            className="text-2xl font-mono font-bold tabular-nums leading-none text-ink"
+          />
           <span className="mt-2 text-[10px] uppercase tracking-[0.2em] text-ink-muted">
             {stat.label}
           </span>

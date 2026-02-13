@@ -13,7 +13,7 @@ export function RouteFilter({
   onToggleRoute: (routeId: string) => void;
 }) {
   return (
-    <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none px-4 sm:px-6 py-2">
+    <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none px-4 sm:px-6 py-3">
       <FilterPill
         active={activeRoutes.has("shared")}
         onClick={() => onToggleRoute("shared")}

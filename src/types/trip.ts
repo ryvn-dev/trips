@@ -2,6 +2,7 @@ export type ActivityCategory =
   | "food"
   | "sight"
   | "transport"
+  | "flight"
   | "hotel"
   | "shopping"
   | "activity"
@@ -34,10 +35,19 @@ export interface RouteGroup {
   travelers: string[];
 }
 
+export interface DrivingRoute {
+  from: string;
+  to: string;
+  polyline: string;
+  distance?: string;
+  duration?: string;
+}
+
 export interface TripDay {
   date: string;
   title: string;
   activities: Activity[];
+  drivingRoutes?: DrivingRoute[];
 }
 
 export interface TripGuideSection {
@@ -86,6 +96,7 @@ export const CATEGORY_CONFIG: Record<
   food: { emoji: "🍜", label: "Food" },
   sight: { emoji: "📸", label: "Sight" },
   transport: { emoji: "🚃", label: "Transport" },
+  flight: { emoji: "✈️", label: "Flight" },
   hotel: { emoji: "🏨", label: "Stay" },
   shopping: { emoji: "🛍️", label: "Shopping" },
   activity: { emoji: "🎯", label: "Activity" },
