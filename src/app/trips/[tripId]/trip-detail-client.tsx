@@ -18,6 +18,7 @@ import type { MobileView } from "@/components/mobile-drawer/hub-drawer";
 export function TripDetailClient({ trip }: { trip: Trip }) {
   const [activeActivityId, setActiveActivityId] = useState<string | null>(null);
   const [clickedActivityId, setClickedActivityId] = useState<string | null>(null);
+  const [clickNonce, setClickNonce] = useState(0);
   const [mobileView, setMobileView] = useState<MobileView>("hub");
   const [activeRoutes, setActiveRoutes] = useState<Set<string>>(() =>
     buildDefaultActiveRoutes(trip.routeGroups),
@@ -58,6 +59,7 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
   const handleActivityClick = useCallback((activity: Activity) => {
     setActiveActivityId(activity.id);
     setClickedActivityId(activity.id);
+    setClickNonce((n) => n + 1);
   }, []);
 
   const handleScrollSync = useCallback((id: string) => {
@@ -117,6 +119,7 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
                   trip={trip}
                   activeActivityId={activeActivityId}
                   clickedActivityId={clickedActivityId}
+                  clickNonce={clickNonce}
                   onActivityHover={handleActivityHover}
                   onActivityClick={handleActivityClick}
                   activeRoutes={activeRoutes}
@@ -202,6 +205,7 @@ export function TripDetailClient({ trip }: { trip: Trip }) {
                   trip={trip}
                   activeActivityId={activeActivityId}
                   clickedActivityId={clickedActivityId}
+                  clickNonce={clickNonce}
                   onActivityHover={handleActivityHover}
                   onActivityClick={handleActivityClick}
                   activeRoutes={activeRoutes}

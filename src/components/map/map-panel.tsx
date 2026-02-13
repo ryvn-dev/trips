@@ -32,7 +32,6 @@ const DAY_COLORS = [
   "#6a7a8a", // slate
 ];
 
-
 /** Decode a Google Maps encoded polyline string into lat/lng pairs. */
 function decodePolyline(encoded: string): google.maps.LatLngLiteral[] {
   const points: google.maps.LatLngLiteral[] = [];
@@ -277,28 +276,29 @@ function DayRoutes({
   return null;
 }
 
-/** Animates a capybara along a driving route when consecutive activities are clicked.
- *  Also draws the route polyline during animation. */
+/** Animates a capybara along a driving route when two connected stops are tapped.
+ *  Tap activity A then activity B — if A→B (or B→A) is a driving route, animate. */
 function RouteAnimator({
   clickedActivityId,
+  clickNonce,
   routeLookup,
   onAnimatingChange,
   bottomPadding = 50,
 }: {
   clickedActivityId: string | null;
+  clickNonce: number;
   routeLookup: globalThis.Map<string, { route: DrivingRoute; dayIndex: number; color: string }>;
   onAnimatingChange: (animating: boolean) => void;
   bottomPadding?: number;
 }) {
   const map = useMap();
   const markerLib = useMapsLibrary("marker");
-  const prevIdRef = useRef<string | null>(null);
   const markerRef = useRef<google.maps.marker.AdvancedMarkerElement | null>(null);
   const polylineRef = useRef<google.maps.Polyline | null>(null);
   const rafRef = useRef<number>(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // All values read via refs so the effect ONLY re-runs when clickedActivityId
+  // All values read via refs so the effect ONLY re-runs when clickNonce
   // changes. On mobile, map/markerLib/bottomPadding references can change on
   // re-renders (address bar, context updates), which would trigger cleanup and
   // kill in-flight animations if they were in the deps array.
@@ -313,12 +313,28 @@ function RouteAnimator({
   const bottomPaddingRef = useRef(bottomPadding);
   bottomPaddingRef.current = bottomPadding;
 
+  // Pair tracking — computed in render phase so Strict Mode double-effect-invocation
+  // sees the same pair both times (refs mutated during render are not reset on cleanup).
+  const pairRef = useRef<{ prevId: string; clickedId: string } | null>(null);
+  const lastSeenNonceRef = useRef(0);
+
+  if (clickNonce > lastSeenNonceRef.current && clickedActivityId) {
+    const prevId = pairRef.current?.clickedId ?? "";
+    pairRef.current = { prevId, clickedId: clickedActivityId };
+    lastSeenNonceRef.current = clickNonce;
+  }
+
   useEffect(() => {
+    if (clickNonce === 0) return; // initial mount, no click yet
+
     const map = mapRef.current;
     const markerLib = markerLibRef.current;
 
-    // Not ready yet — don't update prevIdRef so the click is preserved
     if (!map || !markerLib) return;
+
+    // Skip if map container is not visible (e.g., desktop layout hidden on mobile)
+    const div = map.getDiv();
+    if (div && !div.offsetWidth && !div.offsetHeight) return;
 
     // Cancel any in-flight animation
     if (rafRef.current) {
@@ -339,24 +355,22 @@ function RouteAnimator({
     }
     onAnimatingChangeRef.current(false);
 
-    const prevId = prevIdRef.current;
-    prevIdRef.current = clickedActivityId;
+    // Pair detection: need two consecutive clicks
+    const pair = pairRef.current;
+    if (!pair || !pair.prevId) return;
 
-    if (!prevId || !clickedActivityId || prevId === clickedActivityId) return;
+    // Check forward (prev→clicked) and reverse (clicked→prev)
+    const fwdKey = `${pair.prevId}->${pair.clickedId}`;
+    const revKey = `${pair.clickedId}->${pair.prevId}`;
+    const fwdEntry = routeLookupRef.current.get(fwdKey);
+    const revEntry = routeLookupRef.current.get(revKey);
+    const entry = fwdEntry ?? revEntry;
+    const isReversed = !fwdEntry && !!revEntry;
 
-    // Check if these two activities are connected by a driving route
-    const lookup = routeLookupRef.current;
-    let entry = lookup.get(`${prevId}->${clickedActivityId}`);
-    let reversed = false;
-    if (!entry) {
-      entry = lookup.get(`${clickedActivityId}->${prevId}`);
-      reversed = true;
-    }
     if (!entry) return;
 
-    // Decode path
-    let path = decodePolyline(entry.route.polyline);
-    if (reversed) path = [...path].reverse();
+    const path = decodePolyline(entry.route.polyline);
+    if (isReversed) path.reverse();
     if (path.length < 2) return;
 
     // Compute distances for interpolation
@@ -420,7 +434,7 @@ function RouteAnimator({
         if (progress < 1) {
           rafRef.current = requestAnimationFrame(animate);
         } else {
-          // Brief pause then clean up
+          // Brief pause then clean up and pan to destination
           timeoutRef.current = setTimeout(() => {
             if (markerRef.current === capy) {
               capy.map = null;
@@ -429,6 +443,15 @@ function RouteAnimator({
             if (polylineRef.current) {
               polylineRef.current.setMap(null);
               polylineRef.current = null;
+            }
+            // Pan to destination (same as MapController single-click behavior)
+            const m = mapRef.current;
+            if (m) {
+              const dest = path[path.length - 1];
+              m.panTo(dest);
+              m.setZoom(15);
+              const pad = bottomPaddingRef.current;
+              if (pad > 50) m.panBy(0, Math.round(pad / 2));
             }
             onAnimatingChangeRef.current(false);
             timeoutRef.current = null;
@@ -458,11 +481,8 @@ function RouteAnimator({
       }
       onAnimatingChangeRef.current(false);
     };
-    // ONLY clickedActivityId triggers re-runs. Everything else is read via refs
-    // to prevent unstable references (map, markerLib, bottomPadding) from
-    // triggering cleanup that kills in-flight animations on mobile.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [clickedActivityId]);
+  }, [clickNonce]);
 
   return null;
 }
@@ -501,7 +521,7 @@ function MapController({
 
   // Fit bounds to all markers on initial load
   useEffect(() => {
-    if (!map) return;
+    if (!map || isAnimatingRef.current) return;
 
     const coords = activities
       .filter((a) => a.coordinates)
@@ -511,8 +531,10 @@ function MapController({
 
     const bounds = new google.maps.LatLngBounds();
     coords.forEach((c) => bounds.extend(c));
-    map.fitBounds(bounds, { top: 50, right: 50, bottom: bottomPadding, left: 50 });
-  }, [map, activities, bottomPadding]);
+    const pad = bottomPaddingRef.current;
+    map.fitBounds(bounds, { top: 50, right: 50, bottom: pad, left: 50 });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map, activities, isAnimatingRef]);
 
   return null;
 }
@@ -521,6 +543,7 @@ export function MapPanel({
   trip,
   activeActivityId,
   clickedActivityId,
+  clickNonce = 0,
   onActivityHover,
   onActivityClick,
   activeRoutes,
@@ -529,6 +552,7 @@ export function MapPanel({
   trip: Trip;
   activeActivityId: string | null;
   clickedActivityId: string | null;
+  clickNonce?: number;
   onActivityHover: (id: string | null) => void;
   onActivityClick: (activity: Activity) => void;
   activeRoutes: Set<string>;
@@ -548,7 +572,7 @@ export function MapPanel({
     );
   }, [trip, activeRoutes]);
 
-  // O(1) lookup for consecutive activity pairs connected by a driving route
+  // O(1) lookup: "fromId->toId" pair → route data (pair-click trigger)
   const routeLookup = useMemo(() => {
     const activityMap: Record<string, Activity> = {};
     for (const day of trip.days) {
@@ -575,41 +599,48 @@ export function MapPanel({
   }, [filteredActivities]);
 
   return (
-    <Map
-      defaultCenter={center}
-      defaultZoom={12}
-      mapId="trips-map"
-      gestureHandling="cooperative"
-      disableDefaultUI={false}
-      zoomControl={true}
-      mapTypeControl={false}
-      streetViewControl={false}
-      fullscreenControl={false}
-      className="h-full w-full"
-      colorScheme="LIGHT"
-    >
-      <RouteAnimator
-        clickedActivityId={clickedActivityId}
-        routeLookup={routeLookup}
-        onAnimatingChange={handleAnimatingChange}
-        bottomPadding={bottomPadding}
-      />
-      <MapController
-        activities={filteredActivities}
-        activeActivityId={activeActivityId}
-        isAnimatingRef={isAnimatingRef}
-        bottomPadding={bottomPadding}
-      />
-      <DayRoutes trip={trip} activeRoutes={activeRoutes} />
-      {filteredActivities.map((activity) => (
-        <ActivityMarker
-          key={activity.id}
-          activity={activity}
-          isActive={activeActivityId === activity.id}
-          onHover={onActivityHover}
-          onClick={onActivityClick}
+    <div className="relative h-full w-full">
+      <Map
+        defaultCenter={center}
+        defaultZoom={12}
+        mapId="trips-map"
+        gestureHandling="cooperative"
+        disableDefaultUI={false}
+        zoomControl={true}
+        mapTypeControl={false}
+        streetViewControl={false}
+        fullscreenControl={false}
+        className="h-full w-full"
+        colorScheme="LIGHT"
+      >
+        <RouteAnimator
+          clickedActivityId={clickedActivityId}
+          clickNonce={clickNonce}
+          routeLookup={routeLookup}
+          onAnimatingChange={handleAnimatingChange}
+          bottomPadding={bottomPadding}
         />
-      ))}
-    </Map>
+        <MapController
+          activities={filteredActivities}
+          activeActivityId={activeActivityId}
+          isAnimatingRef={isAnimatingRef}
+          bottomPadding={bottomPadding}
+        />
+        <DayRoutes trip={trip} activeRoutes={activeRoutes} />
+        {filteredActivities.map((activity) => (
+          <ActivityMarker
+            key={activity.id}
+            activity={activity}
+            isActive={activeActivityId === activity.id}
+            onHover={onActivityHover}
+            onClick={onActivityClick}
+          />
+        ))}
+      </Map>
+      {/* Hint: tap two connected stops to see driving route */}
+      <div className="pointer-events-none absolute top-2 inset-x-0 z-10 text-center text-[10px] tracking-wide text-ink-muted/40">
+        Tap two connected stops to see the route
+      </div>
+    </div>
   );
 }
