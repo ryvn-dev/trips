@@ -51,7 +51,7 @@
             "lat": 39.5098,
             "lng": 116.4105
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "julian",
           "tips": "Bring a good book — it's a long flight."
         },
@@ -65,7 +65,7 @@
             "lat": 25.0797,
             "lng": 121.2342
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "ryvn"
         },
         {
@@ -78,7 +78,7 @@
             "lat": 22.308,
             "lng": 113.9185
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "ryvn",
           "duration": "7h10m"
         },
@@ -92,7 +92,7 @@
             "lat": 7.1808,
             "lng": 79.8841
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "julian",
           "tips": "Get a Dialog or Mobitel SIM at the airport arrivals hall — fast data for cheap."
         },
@@ -164,7 +164,7 @@
             "lat": 22.308,
             "lng": 113.9185
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "ryvn"
         },
         {
@@ -177,7 +177,7 @@
             "lat": 7.1808,
             "lng": 79.8841
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "ryvn"
         }
       ],
@@ -1003,7 +1003,7 @@
             "lat": 7.1808,
             "lng": 79.8841
           },
-          "category": "transport",
+          "category": "flight",
           "tips": "Grab a last Sri Lankan meal at the airport before departure.",
           "links": [
             {
@@ -1022,7 +1022,7 @@
             "lat": 7.1808,
             "lng": 79.8841
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "julian"
         },
         {
@@ -1035,7 +1035,7 @@
             "lat": 39.5098,
             "lng": 116.4105
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "julian",
           "tips": "Book an airport hotel if you need rest before heading home."
         }
@@ -1056,7 +1056,7 @@
             "lat": 7.1808,
             "lng": 79.8841
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "ryvn"
         },
         {
@@ -1069,7 +1069,7 @@
             "lat": 22.308,
             "lng": 113.9185
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "ryvn",
           "duration": "7h05m"
         },
@@ -1083,7 +1083,7 @@
             "lat": 22.308,
             "lng": 113.9185
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "ryvn"
         },
         {
@@ -1096,7 +1096,7 @@
             "lat": 25.0797,
             "lng": 121.2342
           },
-          "category": "transport",
+          "category": "flight",
           "routeGroup": "ryvn"
         }
       ],

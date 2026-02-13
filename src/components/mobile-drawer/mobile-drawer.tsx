@@ -52,9 +52,10 @@ export function MobileDrawer({
     return null;
   }, [trip.days, activeActivityId]);
 
-  // Handle day selection — scroll to day in drawer
+  // Handle day selection — scroll to day in drawer and reset scroll position
   const handleSelectDay = useCallback((index: number) => {
     setActiveDay(index);
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   // Handle activity click within drawer — disable scroll sync briefly

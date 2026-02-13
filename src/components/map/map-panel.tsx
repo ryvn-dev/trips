@@ -206,25 +206,7 @@ function getSegmentColor(
   return DAY_COLORS[dayIndex % DAY_COLORS.length];
 }
 
-/** Check if a driving route segment should be visible given active route filters. */
-function isSegmentVisible(
-  route: DrivingRoute,
-  activityMap: Record<string, Activity>,
-  activeRoutes: Set<string>,
-): boolean {
-  const from = activityMap[route.from];
-  const to = activityMap[route.to];
-  if (!from || !to) return false;
-  // Both activities must pass the route filter
-  const fromVisible = from.routeGroup
-    ? activeRoutes.has(from.routeGroup)
-    : activeRoutes.has("shared");
-  const toVisible = to.routeGroup
-    ? activeRoutes.has(to.routeGroup)
-    : activeRoutes.has("shared");
-  return fromVisible && toVisible;
-}
-
+/** Draws dashed flight lines only — driving routes are shown by RouteAnimator during animation. */
 function DayRoutes({
   trip,
   activeRoutes,
@@ -235,91 +217,91 @@ function DayRoutes({
   const map = useMap();
   const polylinesRef = useRef<google.maps.Polyline[]>([]);
 
-  // Build an activity lookup map (avoid shadowed Map from react-google-maps)
-  const activityMap = useMemo(() => {
-    const m: Record<string, Activity> = {};
-    for (const day of trip.days) {
-      for (const a of day.activities) {
-        m[a.id] = a;
-      }
-    }
-    return m;
-  }, [trip]);
-
   useEffect(() => {
     if (!map) return;
 
-    // Clean up previous polylines
     polylinesRef.current.forEach((p) => p.setMap(null));
     polylinesRef.current = [];
 
-    trip.days.forEach((day, dayIndex) => {
-      const color = DAY_COLORS[dayIndex % DAY_COLORS.length];
+    for (const day of trip.days) {
+      const flights = day.activities.filter(
+        (a) => a.category === "flight" && a.coordinates,
+      );
 
-      // Use pre-computed driving routes when available
-      if (day.drivingRoutes && day.drivingRoutes.length > 0) {
-        for (const route of day.drivingRoutes) {
-          if (!isSegmentVisible(route, activityMap, activeRoutes)) continue;
+      // Group by routeGroup to draw lines within each traveler's journey
+      const byGroup = new globalThis.Map<string, Activity[]>();
+      for (const a of flights) {
+        const group = a.routeGroup ?? "shared";
+        if (!activeRoutes.has(group)) continue;
+        const arr = byGroup.get(group) ?? [];
+        arr.push(a);
+        byGroup.set(group, arr);
+      }
 
-          const path = decodePolyline(route.polyline);
+      for (const [, activities] of byGroup) {
+        for (let i = 0; i < activities.length - 1; i++) {
+          const from = activities[i];
+          const to = activities[i + 1];
+          if (
+            from.coordinates!.lat === to.coordinates!.lat &&
+            from.coordinates!.lng === to.coordinates!.lng
+          ) continue;
+
+          const rg = from.routeGroup
+            ? trip.routeGroups?.find((g) => g.id === from.routeGroup)
+            : undefined;
+          const color = rg
+            ? (ROUTE_GROUP_COLORS[rg.color]?.mapColor ?? "#8b7355")
+            : "#8b7355";
+
           const polyline = new google.maps.Polyline({
-            path,
-            geodesic: false,
-            strokeColor: getSegmentColor(route, activityMap, trip, dayIndex),
-            strokeOpacity: 0.8,
-            strokeWeight: 4,
+            path: [from.coordinates!, to.coordinates!],
+            geodesic: true,
+            strokeColor: color,
+            strokeOpacity: 0,
+            icons: [{
+              icon: {
+                path: "M 0,-1 0,1",
+                strokeOpacity: 0.6,
+                strokeWeight: 2,
+                scale: 3,
+              },
+              offset: "0",
+              repeat: "12px",
+            }],
           });
           polyline.setMap(map);
           polylinesRef.current.push(polyline);
         }
-        return;
       }
-
-      // Fallback: straight lines between activities
-      const coords = day.activities
-        .filter((a) => a.coordinates && a.category !== "flight")
-        .filter((a) =>
-          a.routeGroup
-            ? activeRoutes.has(a.routeGroup)
-            : activeRoutes.has("shared"),
-        )
-        .map((a) => a.coordinates!);
-
-      if (coords.length < 2) return;
-
-      const polyline = new google.maps.Polyline({
-        path: coords,
-        geodesic: true,
-        strokeColor: color,
-        strokeOpacity: 0.8,
-        strokeWeight: 4,
-      });
-      polyline.setMap(map);
-      polylinesRef.current.push(polyline);
-    });
+    }
 
     return () => {
       polylinesRef.current.forEach((p) => p.setMap(null));
       polylinesRef.current = [];
     };
-  }, [map, trip, activeRoutes, activityMap]);
+  }, [map, trip, activeRoutes]);
 
   return null;
 }
 
-/** Animates a capybara along a driving route when consecutive activities are clicked. */
+/** Animates a capybara along a driving route when consecutive activities are clicked.
+ *  Also draws the route polyline during animation. */
 function RouteAnimator({
   clickedActivityId,
   routeLookup,
   onAnimatingChange,
+  bottomPadding = 50,
 }: {
   clickedActivityId: string | null;
-  routeLookup: globalThis.Map<string, { route: DrivingRoute; dayIndex: number }>;
+  routeLookup: globalThis.Map<string, { route: DrivingRoute; dayIndex: number; color: string }>;
   onAnimatingChange: (animating: boolean) => void;
+  bottomPadding?: number;
 }) {
   const map = useMap();
   const prevIdRef = useRef<string | null>(null);
   const markerRef = useRef<google.maps.marker.AdvancedMarkerElement | null>(null);
+  const polylineRef = useRef<google.maps.Polyline | null>(null);
   const rafRef = useRef<number>(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -339,8 +321,12 @@ function RouteAnimator({
     if (markerRef.current) {
       markerRef.current.map = null;
       markerRef.current = null;
-      onAnimatingChange(false);
     }
+    if (polylineRef.current) {
+      polylineRef.current.setMap(null);
+      polylineRef.current = null;
+    }
+    onAnimatingChange(false);
 
     if (!map || !prevId || !clickedActivityId || prevId === clickedActivityId) return;
 
@@ -368,10 +354,21 @@ function RouteAnimator({
     // Tell MapController to stop fighting — we own the camera now
     onAnimatingChange(true);
 
-    // Fit map to show entire route, then start animation after bounds settle
+    // Draw the route polyline (visible only during animation)
+    const routePolyline = new google.maps.Polyline({
+      path,
+      geodesic: false,
+      strokeColor: entry.color,
+      strokeOpacity: 0.8,
+      strokeWeight: 4,
+    });
+    routePolyline.setMap(map);
+    polylineRef.current = routePolyline;
+
+    // Fit map to show entire route — account for drawer on mobile
     const bounds = new google.maps.LatLngBounds();
     path.forEach((p) => bounds.extend(p));
-    map.fitBounds(bounds, { top: 60, right: 60, bottom: 60, left: 60 });
+    map.fitBounds(bounds, { top: 60, right: 60, bottom: bottomPadding + 60, left: 60 });
 
     // Create capybara marker
     const content = document.createElement("div");
@@ -413,6 +410,10 @@ function RouteAnimator({
               capy.map = null;
               markerRef.current = null;
             }
+            if (polylineRef.current) {
+              polylineRef.current.setMap(null);
+              polylineRef.current = null;
+            }
             onAnimatingChange(false);
             timeoutRef.current = null;
           }, 500);
@@ -435,9 +436,13 @@ function RouteAnimator({
         markerRef.current.map = null;
         markerRef.current = null;
       }
+      if (polylineRef.current) {
+        polylineRef.current.setMap(null);
+        polylineRef.current = null;
+      }
       onAnimatingChange(false);
     };
-  }, [map, clickedActivityId, routeLookup, onAnimatingChange]);
+  }, [map, clickedActivityId, routeLookup, onAnimatingChange, bottomPadding]);
 
   return null;
 }
@@ -523,10 +528,15 @@ export function MapPanel({
 
   // O(1) lookup for consecutive activity pairs connected by a driving route
   const routeLookup = useMemo(() => {
-    const lookup = new globalThis.Map<string, { route: DrivingRoute; dayIndex: number }>();
+    const activityMap: Record<string, Activity> = {};
+    for (const day of trip.days) {
+      for (const a of day.activities) activityMap[a.id] = a;
+    }
+    const lookup = new globalThis.Map<string, { route: DrivingRoute; dayIndex: number; color: string }>();
     trip.days.forEach((day, dayIndex) => {
       for (const route of day.drivingRoutes ?? []) {
-        lookup.set(`${route.from}->${route.to}`, { route, dayIndex });
+        const color = getSegmentColor(route, activityMap, trip, dayIndex);
+        lookup.set(`${route.from}->${route.to}`, { route, dayIndex, color });
       }
     });
     return lookup;
@@ -567,6 +577,7 @@ export function MapPanel({
         clickedActivityId={clickedActivityId}
         routeLookup={routeLookup}
         onAnimatingChange={handleAnimatingChange}
+        bottomPadding={bottomPadding}
       />
       {filteredActivities.map((activity) => (
         <ActivityMarker
