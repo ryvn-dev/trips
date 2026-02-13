@@ -37,12 +37,12 @@ export default function RootLayout({
       >
         <Header />
         {children}
-        {process.env.NODE_ENV === "development" && (
+        {/* {process.env.NODE_ENV === "development" && (
           <>
             <script src="https://cdn.jsdelivr.net/npm/eruda" />
             <script dangerouslySetInnerHTML={{ __html: "eruda.init();" }} />
           </>
-        )}
+        )} */}
       </body>
     </html>
   );
