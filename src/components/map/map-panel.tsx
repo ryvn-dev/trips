@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import {
   Map,
   AdvancedMarker,
@@ -307,11 +307,19 @@ function RouteAnimator({
   const rafRef = useRef<number>(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Stable refs for values used inside the effect — prevents dep changes
+  // (e.g. bottomPadding shifting from mobile address bar) from killing
+  // in-flight animations via effect cleanup.
+  const routeLookupRef = useRef(routeLookup);
+  routeLookupRef.current = routeLookup;
+  const onAnimatingChangeRef = useRef(onAnimatingChange);
+  onAnimatingChangeRef.current = onAnimatingChange;
+  const bottomPaddingRef = useRef(bottomPadding);
+  bottomPaddingRef.current = bottomPadding;
+
   useEffect(() => {
     // Don't track clicks until map + marker library are ready — otherwise
     // prevIdRef gets updated before they load and we lose the click pair.
-    // On real mobile devices the marker library loads lazily, so without
-    // this guard AdvancedMarkerElement creation silently fails.
     if (!map || !markerLib) return;
 
     // Cancel any in-flight animation
@@ -331,7 +339,7 @@ function RouteAnimator({
       polylineRef.current.setMap(null);
       polylineRef.current = null;
     }
-    onAnimatingChange(false);
+    onAnimatingChangeRef.current(false);
 
     const prevId = prevIdRef.current;
     prevIdRef.current = clickedActivityId;
@@ -339,10 +347,11 @@ function RouteAnimator({
     if (!prevId || !clickedActivityId || prevId === clickedActivityId) return;
 
     // Check if these two activities are connected by a driving route
-    let entry = routeLookup.get(`${prevId}->${clickedActivityId}`);
+    const lookup = routeLookupRef.current;
+    let entry = lookup.get(`${prevId}->${clickedActivityId}`);
     let reversed = false;
     if (!entry) {
-      entry = routeLookup.get(`${clickedActivityId}->${prevId}`);
+      entry = lookup.get(`${clickedActivityId}->${prevId}`);
       reversed = true;
     }
     if (!entry) return;
@@ -360,7 +369,7 @@ function RouteAnimator({
     const duration = 5000;
 
     // Tell MapController to stop fighting — we own the camera now
-    onAnimatingChange(true);
+    onAnimatingChangeRef.current(true);
 
     // Draw the route polyline (visible only during animation)
     const routePolyline = new google.maps.Polyline({
@@ -374,9 +383,10 @@ function RouteAnimator({
     polylineRef.current = routePolyline;
 
     // Fit map to show entire route — account for drawer on mobile
+    const pad = bottomPaddingRef.current;
     const bounds = new google.maps.LatLngBounds();
     path.forEach((p) => bounds.extend(p));
-    map.fitBounds(bounds, { top: 60, right: 60, bottom: bottomPadding + 60, left: 60 });
+    map.fitBounds(bounds, { top: 60, right: 60, bottom: pad + 60, left: 60 });
 
     // Create capybara marker
     const content = document.createElement("div");
@@ -422,7 +432,7 @@ function RouteAnimator({
               polylineRef.current.setMap(null);
               polylineRef.current = null;
             }
-            onAnimatingChange(false);
+            onAnimatingChangeRef.current(false);
             timeoutRef.current = null;
           }, 500);
         }
@@ -448,9 +458,13 @@ function RouteAnimator({
         polylineRef.current.setMap(null);
         polylineRef.current = null;
       }
-      onAnimatingChange(false);
+      onAnimatingChangeRef.current(false);
     };
-  }, [map, markerLib, clickedActivityId, routeLookup, onAnimatingChange, bottomPadding]);
+    // Only re-run when clickedActivityId changes, or map/markerLib become ready.
+    // Other values (routeLookup, onAnimatingChange, bottomPadding) are read via
+    // refs so their changes don't trigger cleanup that would kill animations.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map, markerLib, clickedActivityId]);
 
   return null;
 }
@@ -458,12 +472,12 @@ function RouteAnimator({
 function MapController({
   activities,
   activeActivityId,
-  isAnimating,
+  isAnimatingRef,
   bottomPadding = 50,
 }: {
   activities: Activity[];
   activeActivityId: string | null;
-  isAnimating: boolean;
+  isAnimatingRef: React.RefObject<boolean>;
   bottomPadding?: number;
 }) {
   const map = useMap();
@@ -471,7 +485,7 @@ function MapController({
   bottomPaddingRef.current = bottomPadding;
 
   useEffect(() => {
-    if (!map || isAnimating) return;
+    if (!map || isAnimatingRef.current) return;
 
     if (activeActivityId) {
       const activity = activities.find((a) => a.id === activeActivityId);
@@ -485,7 +499,7 @@ function MapController({
         }
       }
     }
-  }, [map, activeActivityId, activities, isAnimating]);
+  }, [map, activeActivityId, activities, isAnimatingRef]);
 
   // Fit bounds to all markers on initial load
   useEffect(() => {
@@ -522,9 +536,11 @@ export function MapPanel({
   activeRoutes: Set<string>;
   bottomPadding?: number;
 }) {
-  const [isAnimating, setIsAnimating] = useState(false);
+  // Ref for synchronous isAnimating signaling — avoids one-render-cycle delay
+  // that lets MapController's panTo run before RouteAnimator's fitBounds.
+  const isAnimatingRef = useRef(false);
   const handleAnimatingChange = useCallback((animating: boolean) => {
-    setIsAnimating(animating);
+    isAnimatingRef.current = animating;
   }, []);
 
   const filteredActivities = useMemo(() => {
@@ -574,19 +590,19 @@ export function MapPanel({
       className="h-full w-full"
       colorScheme="LIGHT"
     >
-      <MapController
-        activities={filteredActivities}
-        activeActivityId={activeActivityId}
-        isAnimating={isAnimating}
-        bottomPadding={bottomPadding}
-      />
-      <DayRoutes trip={trip} activeRoutes={activeRoutes} />
       <RouteAnimator
         clickedActivityId={clickedActivityId}
         routeLookup={routeLookup}
         onAnimatingChange={handleAnimatingChange}
         bottomPadding={bottomPadding}
       />
+      <MapController
+        activities={filteredActivities}
+        activeActivityId={activeActivityId}
+        isAnimatingRef={isAnimatingRef}
+        bottomPadding={bottomPadding}
+      />
+      <DayRoutes trip={trip} activeRoutes={activeRoutes} />
       {filteredActivities.map((activity) => (
         <ActivityMarker
           key={activity.id}
