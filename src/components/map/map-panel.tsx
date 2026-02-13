@@ -245,6 +245,8 @@ function MapController({
   bottomPadding?: number;
 }) {
   const map = useMap();
+  const bottomPaddingRef = useRef(bottomPadding);
+  bottomPaddingRef.current = bottomPadding;
 
   useEffect(() => {
     if (!map) return;
@@ -255,12 +257,13 @@ function MapController({
         map.panTo(activity.coordinates);
         map.setZoom(15);
         // Offset center downward so marker appears in visible area above drawer
-        if (bottomPadding > 50) {
-          map.panBy(0, Math.round(bottomPadding / 2));
+        const pad = bottomPaddingRef.current;
+        if (pad > 50) {
+          map.panBy(0, Math.round(pad / 2));
         }
       }
     }
-  }, [map, activeActivityId, activities, bottomPadding]);
+  }, [map, activeActivityId, activities]);
 
   // Fit bounds to all markers on initial load
   useEffect(() => {
