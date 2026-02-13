@@ -94,8 +94,12 @@ export function GuideDrawer({
             </div>
 
             {/* End marker */}
-            <div className="flex flex-col items-center gap-2 py-8 mt-4">
-              <div className="h-2 w-2 rotate-45 bg-sand/40" />
+            <div className="flex flex-col items-center gap-2 pt-8 pb-[40vh]">
+              <div className="h-6 w-px bg-border/60" />
+              <div className="h-2 w-2 rotate-45 bg-vermillion/30" />
+              <span className="text-[10px] uppercase tracking-[0.3em] text-ink-muted mt-1">
+                End of guide
+              </span>
             </div>
           </div>
         </DrawerPrimitive.Content>

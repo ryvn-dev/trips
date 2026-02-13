@@ -179,12 +179,17 @@ export function HubDrawer({
             </div>
 
             {/* Location */}
-            <div className="px-5 pb-8">
+            <div className="px-5 pb-4">
               <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-ink-muted mb-2">
                 <MapPin className="h-3 w-3" />
                 Location
               </div>
               <p className="text-sm text-ink">{trip.location}</p>
+            </div>
+
+            {/* End marker */}
+            <div className="flex flex-col items-center gap-2 pt-4 pb-[40vh]">
+              <div className="h-2 w-2 rotate-45 bg-sand/40" />
             </div>
           </div>
         </DrawerPrimitive.Content>

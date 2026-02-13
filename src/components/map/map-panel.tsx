@@ -254,9 +254,13 @@ function MapController({
       if (activity?.coordinates) {
         map.panTo(activity.coordinates);
         map.setZoom(15);
+        // Offset center downward so marker appears in visible area above drawer
+        if (bottomPadding > 50) {
+          map.panBy(0, Math.round(bottomPadding / 2));
+        }
       }
     }
-  }, [map, activeActivityId, activities]);
+  }, [map, activeActivityId, activities, bottomPadding]);
 
   // Fit bounds to all markers on initial load
   useEffect(() => {
